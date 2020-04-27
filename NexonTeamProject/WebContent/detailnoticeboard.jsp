@@ -4,43 +4,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 상세</title>
 <style type="text/css">
 	
 	.frameContainer {
 		width: 1920px;
 		height: 900px;
+		display: flex;
+		justify-content: center;
 	}
-	
-	.mainContainer {
-		width: 700px;
-		height: 700px;
-		border: 1px dotted red;
-		margin: auto;
-		padding-top: 120px;
-	}
-	
 	.middleContainer1 {
 		width: 520px; 
 		margin: auto;
 	}
-	
 	.middleContainer2 {
 		clear: left; 
 	}
-	
 	.bottomContainer1 {
 		width: 200px;
 		margin: auto;
+		padding-left: 100px;
 		padding-top: 30px;
 	}
-	
 	.bottomContainer2 {
 		width: 250px;
 		margin: auto;
-		margin-right: 212px;
+		margin-right: 110px;
 	}
-	
 	.itemSpanBox, .itemSpanBox_textArea {
 		display: inline-block;
 		width: 80px;
@@ -49,64 +39,133 @@
 		font-size: 20px;
 		font-weight: bold;
 	}
-	
 	.itemSpanBox_textArea {
-		height: 150px;
+		height: 276px;
+		padding-right: 5px;
 		float: left;
-		margin-right: 6px;
-		padding-top: 150px;
+		display: flex;
+		align-items: center;
 	}
-	
-	.itemDetailBox {
-		width: 509px;
+	.itemDetailBox1 {
+		width: 250px;
 		height: 30px;
 	}
-	
+	.itemDetailBox2 {
+		width: 510px;
+		height: 30px;
+	}
 	.inputButton1 {
 		width: 150px;
 		height: 50px;
 		background-color: black;
 		color: white;
 		border-radius: 10px;
-		margin-bottom: 20px;
+		margin-bottom: 5px;
 		font-size: 20px;
 		font-weight: bold;
 	}
-	
 	.inputButton2 {
 		height: 80px;
 		width: 200px;
 	}
-	
 	.logoImg1 {
 		float: left;
 	}
-	
 	.logoImg1, .logoImg2 {
 		width:100px;
 		height: 50px;
 	}
-	
 	h1 {
 		width: 300px;
 		height: 50px;
 		text-align: center; 
 		margin-top: 0;
 	}
-	
 	button {
 		border: none;
+	}
+	textarea {
+		font-family: sans-serif;
+	}
+	
+		/* header */
+	#header{
+		width: 1900px; height: 62px;
+	}
+	#menuBox{
+		float:left; width: 107px; height:64px; padding: 15px 23px 24px;
+	}
+	#menuIcon{
+		width:18px; height:16px; margin: 1px 5px 0px 0px;
+	}
+	#logoBox{
+		width: 130px; height: 62px; float:left; padding-left: 725px;
+	}
+	#rightHBox{
+		width: 300px; float:right; padding-right: 11px;
+	}
+	#PCBox{
+		display: inline-block; box-sizing:border-box; width: 95px; padding: 15px 10px 0px;
+	}
+	#signUpBox{
+		display: inline-block; box-sizing:border-box; width: 90px; padding: 15px 12px 0px;;
+	}
+	#loginBox{
+		display: inline-block; box-sizing:border-box; width: 95px; height:38px;
+	}
+	#loginBtn{
+		padding: 7px 18px; border: 2px solid #17191D; border-radius: 19px;
+	}
+	.menuFont{
+		color: #17191D; font:16px Gothic;
 	}
 	
 </style>
 <script type="text/javascript">
+	
+	function regiConfirmFnc() {
+		var confirmText = confirm("새로 쓴 글을 등록하시겠습니까?");
+		if (confirmText==true) {
+			alert('등록이 완료되었습니다.');
+		} else {
+			alert('등록이 취소되었습니다.');
+		}
+	}
+
 
 </script>
 </head>
 <body>
-
+<!--헤더  -->
+<div id="header">
+		<div id="menuBox">
+			<a>
+				<img id="menuIcon" alt="menuIcon" src="./images/menu.png">			
+				<span class="menuFont" style="width: 30px;">메뉴</span>
+			</a>
+		</div>
+		<img id="logoBox" alt="logo" src="./images/logo_nexon.png">
+		<div id="rightHBox">
+			<div id="PCBox">
+				<span class="menuFont">PC방</span>
+				<span style="color:#9FA1A7; font:16px Gothic; font-weight: bold;">OFF</span>
+			</div>
+			<div id="signUpBox">
+				<a>
+					<span class="menuFont">회원가입</span>
+				</a>
+			</div>
+			
+			<div id="loginBox">
+				<a id="loginBtn">			
+					<span style="font:16px Gothic; color:#080410; font-weight: bold;">로그인</span>
+				</a>
+			</div>		
+		</div>
+	</div>
+<!-- 본문  -->
 <div class="frameContainer">
-	<div class="mainContainer">
+	<div>
 		<div class="middleContainer1">
 			<img class="logoImg1" src="images/logo_nexon.png" alt="로고">
 			<h1 style="float: left;">친목 게시판 글쓰기</h1>
@@ -116,21 +175,19 @@
 			<div class="middleContainer2">
 				<div>
 					<span class="itemSpanBox">작성자</span>
-					<input class="itemDetailBox" type="text">
+					<input class="itemDetailBox1" type="text" placeholder=" 작성자명을 입력하세요.">
 				</div>
 				<div>
 					<span class="itemSpanBox">제 목</span>
-					<input class="itemDetailBox" type="text">
+					<input class="itemDetailBox2" type="text" placeholder=" 제목을 입력하세요.">
 				</div>
 				<div>
-					<div>
-						<span class="itemSpanBox_textArea">내 용</span>
-					</div>
-					<textarea rows="20" cols="70"></textarea>
+					<span class="itemSpanBox_textArea">내 용</span>
+					<textarea rows="15" cols="82" placeholder=" 내용을 입력하세요."></textarea>
 				</div>	
 			</div>
 			<div class="bottomContainer1">
-				<input class="inputButton1" type="submit" value="등록하기">
+				<input class="inputButton1" type="submit" onclick="regiConfirmFnc()" value="등록하기">
 			</div>
 			<div class="bottomContainer2">
 				<button> <!-- 등록하기 버튼 링크 url 삽입 필요 -->

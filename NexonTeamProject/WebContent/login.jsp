@@ -59,6 +59,7 @@
 					<span class="menuFont">회원가입</span>
 				</a>
 			</div>
+			
 			<div id="loginBox">
 				<a id="loginBtn">			
 					<span style="font:16px Gothic; color:#080410; font-weight: bold;">로그인</span>
