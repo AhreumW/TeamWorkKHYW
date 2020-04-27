@@ -91,6 +91,33 @@
 		padding-right: 7px; border-right:1px solid #D9D9DA;
 	}
 </style>
+<script type="text/javascript">
+	
+	window.onload = function(){
+		var loginBox = document.getElementById('loginBox');
+
+		loginBox.setAttribute('onmouseenter', 'changeBtnBlue();');
+		loginBox.setAttribute('onmouseleave', 'changeBtnWhite();');
+	}
+	
+	function changeBtnBlue(){
+		var loginBtn = document.getElementById('loginBtn');
+
+		loginBtn.style.backgroundColor = "#07f";
+		loginBtn.style.border = "none";
+
+		loginBtn.children[0].style.color = "#fff";
+	}
+	
+	function changeBtnWhite(){
+		var loginBtn = document.getElementById('loginBtn');
+
+		loginBtn.style.backgroundColor = "#fff";
+		loginBtn.style.border = "2px solid #17191D";
+
+		loginBtn.children[0].style.color = "#080410";
+	}
+</script>
 </head>
 <body>
 	<div id="header">
