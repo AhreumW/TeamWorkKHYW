@@ -96,9 +96,31 @@
 
 #btnWrap {
 	margin: auto;
-	width: 188px;
+	width: 200px;
 	height: 47px;
 	border: 1px solid black;
+}
+
+#bt1 {
+	width: 92px;
+	height: 45px;
+	border: 1px solid #5a6ff2;
+	float: left;
+	background-color: #5a6ff2;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#bt2 {
+	width: 92px;
+	height: 45px;
+	border: 1px solid #5a6ff2;
+	float: right;
+	background-color: white;
+	color: #5a6ff2;
+	font-size: 14px;
+	font-weight: bold;
 }
 </style>
 
@@ -161,8 +183,12 @@
 		</div>
 		
 		<div id='btnWrap'>
-			<a href = "./mebership.jsp">다음</a>
-			<a href = "./mebership.jsp">새로 입력</a>
+			<form action="">
+				<input id='bt1' type="submit" value="다음">
+			</form>
+			<form action="./membership.jsp">
+				<input id='bt2' type="submit" value="새로 입력">
+			</form>
 		</div>
 	</div>
 
