@@ -14,8 +14,8 @@
 		justify-content: center;
 	}
 	.middleContainer1 {
-		width: 520px; 
-		margin: auto;
+		width: 600px; 
+		display: inline-block;
 	}
 	.middleContainer2 {
 		clear: left; 
@@ -23,13 +23,12 @@
 	.bottomContainer1 {
 		width: 200px;
 		margin: auto;
-		padding-left: 100px;
 		padding-top: 30px;
 	}
 	.bottomContainer2 {
 		width: 250px;
 		margin: auto;
-		margin-right: 110px;
+		padding-left: 25px;
 	}
 	.itemSpanBox, .itemSpanBox_textArea {
 		display: inline-block;
@@ -79,16 +78,20 @@
 		width: 300px;
 		height: 50px;
 		text-align: center; 
+		float: left;
 		margin-top: 0;
+		margin-left: 50px;
+		margin-right: 50px;
 	}
 	button {
 		border: none;
+		background-color: white;
 	}
 	textarea {
 		font-family: sans-serif;
 	}
 	
-		/* header */
+	/* header */
 	#header{
 		width: 1900px; height: 62px;
 	}
@@ -119,10 +122,36 @@
 	.menuFont{
 		color: #17191D; font:16px Gothic;
 	}
-	
+
 </style>
 <script type="text/javascript">
-	
+		/*헤더 스크립트  */
+		window.onload = function(){
+			var loginBox = document.getElementById('loginBox');
+		
+			loginBox.setAttribute('onmouseenter', 'changeBtnBlue();');
+			loginBox.setAttribute('onmouseleave', 'changeBtnWhite();');
+		}
+		
+		function changeBtnBlue(){
+			var loginBtn = document.getElementById('loginBtn');
+		
+			loginBtn.style.backgroundColor = "#07f";
+			loginBtn.style.border = "none";
+		
+			loginBtn.children[0].style.color = "#fff";
+		}
+		
+		function changeBtnWhite(){
+			var loginBtn = document.getElementById('loginBtn');
+		
+			loginBtn.style.backgroundColor = "#fff";
+			loginBtn.style.border = "2px solid #17191D";
+		
+			loginBtn.children[0].style.color = "#080410";
+		}
+		
+	/*글쓰기 컨펌 스크립트  */
 	function regiConfirmFnc() {
 		var confirmText = confirm("새로 쓴 글을 등록하시겠습니까?");
 		if (confirmText==true) {
@@ -131,7 +160,6 @@
 			alert('등록이 취소되었습니다.');
 		}
 	}
-
 
 </script>
 </head>
@@ -168,7 +196,7 @@
 	<div>
 		<div class="middleContainer1">
 			<img class="logoImg1" src="images/logo_nexon.png" alt="로고">
-			<h1 style="float: left;">친목 게시판 글쓰기</h1>
+			<h1>친목 게시판 글쓰기</h1>
 			<img class="logoImg2" src="images/logo_nexon.png" alt="로고">
 		</div>
 		<form action=""> <!-- 내용 입력 후 전생 링크 url 삽입 필요  -->
@@ -189,12 +217,13 @@
 			<div class="bottomContainer1">
 				<input class="inputButton1" type="submit" onclick="regiConfirmFnc()" value="등록하기">
 			</div>
+		</form>
 			<div class="bottomContainer2">
 				<button> <!-- 등록하기 버튼 링크 url 삽입 필요 -->
 					<img src="images/button.png" alt="로고">
 				</button>
 			</div>
-		</form>
+
 	</div>
 </div>
 	
