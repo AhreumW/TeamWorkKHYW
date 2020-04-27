@@ -9,13 +9,13 @@
 <style>
 #wrap {
 	height: 900px;
-	border: 1px solid black;
+/* 	border: 1px solid black; */
 }
 
 #secondWrap {
 	width: 510px;
-	height: 622px;
-	border: 1px solid black;
+	height: 562px;
+/* 	border: 1px solid black; */
 	margin: auto;
 }
 
@@ -27,14 +27,14 @@
 
 #infoLine {
 	width: 510px;
-	border: 0.8px solid grey;
+	border: 0.5px solid grey;
 }
 
 .underDiv {
 	width: 510px;
 	height: 78px;
-	border: 1px solid black;
-	margin-top: 50px;
+/* 	border: 1px solid black; */
+	margin-top: 40px;
 	box-sizing: border-box;
 }
 
@@ -46,14 +46,14 @@
 .secondUnderDiv {
 	margin-top: 15px;
 	width: 108px;
-	border: 1px solid black;
+/* 	border: 1px solid black; */
 	float: left;
 }
 
 .thirdUnderDiv {
 	width: 396px;
 	height: 74px;
-	border: 1px solid black;
+/* 	border: 1px solid black; */
 	float: right;
 }
 
@@ -65,6 +65,7 @@
 	padding-left: 17px;
 	box-sizing: border-box;
 	margin-bottom: 5px;
+	border: 0.5px solid #666666;
 }
 
 #certification {
@@ -92,13 +93,14 @@
 	padding-left: 17px;
 	box-sizing: border-box;
 	margin-bottom: 5px;
+	border: 0.5px solid #666666;
 }
 
 #btnWrap {
 	margin: auto;
 	width: 200px;
-	height: 47px;
-	border: 1px solid black;
+	height: 117px;
+/* 	border: 1px solid black; */
 }
 
 #bt1 {
@@ -121,6 +123,18 @@
 	color: #5a6ff2;
 	font-size: 14px;
 	font-weight: bold;
+}
+
+#bottomLine {
+	width: 100%;
+	border: 0.5px solid grey;
+	margin-bottom: 50px;
+}
+
+#copyright {
+	width: 306px;
+	margin: auto;
+	font-size: 12px;
 }
 </style>
 
@@ -183,12 +197,16 @@
 		</div>
 		
 		<div id='btnWrap'>
-			<form action="">
-				<input id='bt1' type="submit" value="다음">
-			</form>
+			<button id='bt1'>다음</button>
 			<form action="./membership.jsp">
 				<input id='bt2' type="submit" value="새로 입력">
 			</form>
+		</div>
+		
+		<div id='bottomLine'></div>
+		
+		<div id='copyright'>
+			<span>© 2004 NEXON Korea Corporation All Rights Reserved.</span>
 		</div>
 	</div>
 
