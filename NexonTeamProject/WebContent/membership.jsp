@@ -7,15 +7,84 @@
 <title>회원가입</title>
 
 <style>
+#header {
+	width: 1900px;
+	height: 62px;
+}
+
+#menuBox {
+	float: left;
+	width: 107px;
+	height: 64px;
+	padding: 15px 23px 24px;
+}
+
+#menuIcon {
+	width: 18px;
+	height: 16px;
+	margin: 1px 5px 0px 0px;
+}
+
+#logoBox {
+	width: 130px;
+	height: 62px;
+	float: left;
+	padding-left: 725px;
+}
+
+#rightHBox {
+	width: 300px;
+	float: right;
+	padding-right: 11px;
+}
+
+#PCBox {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 95px;
+	padding: 15px 10px 0px;
+}
+
+#signUpBox {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 90px;
+	padding: 15px 12px 0px;;
+}
+
+#loginBox {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 95px;
+	height: 38px;
+}
+
+#loginBtn {
+	padding: 7px 18px;
+	border: 2px solid #17191D;
+	border-radius: 19px;
+}
+
+.menuFont {
+	color: #17191D;
+	font: 16px Gothic;
+}
+
+#headerLine {
+	width: 100%;
+	border: 0.5px solid black;
+	margin-bottom: 70px;
+}
+
 #wrap {
 	height: 900px;
-/* 	border: 1px solid black; */
+	/* 	border: 1px solid black; */
 }
 
 #secondWrap {
 	width: 510px;
 	height: 562px;
-/* 	border: 1px solid black; */
+	/* 	border: 1px solid black; */
 	margin: auto;
 }
 
@@ -27,13 +96,13 @@
 
 #infoLine {
 	width: 510px;
-	border: 0.5px solid grey;
+	border: 0.5px solid #D5D5D5;
 }
 
 .underDiv {
 	width: 510px;
 	height: 78px;
-/* 	border: 1px solid black; */
+	/* 	border: 1px solid black; */
 	margin-top: 40px;
 	box-sizing: border-box;
 }
@@ -46,14 +115,14 @@
 .secondUnderDiv {
 	margin-top: 15px;
 	width: 108px;
-/* 	border: 1px solid black; */
+	/* 	border: 1px solid black; */
 	float: left;
 }
 
 .thirdUnderDiv {
 	width: 396px;
 	height: 74px;
-/* 	border: 1px solid black; */
+	/* 	border: 1px solid black; */
 	float: right;
 }
 
@@ -65,7 +134,7 @@
 	padding-left: 17px;
 	box-sizing: border-box;
 	margin-bottom: 5px;
-	border: 0.5px solid #666666;
+	border: 0.5px solid #D5D5D5;
 }
 
 #certification {
@@ -79,7 +148,6 @@
 }
 
 .inputMsg {
-	
 	clear: both;
 	font-size: 12px;
 	color: #666666;
@@ -93,14 +161,14 @@
 	padding-left: 17px;
 	box-sizing: border-box;
 	margin-bottom: 5px;
-	border: 0.5px solid #666666;
+	border: 0.5px solid #D5D5D5;
 }
 
 #btnWrap {
 	margin: auto;
 	width: 200px;
 	height: 117px;
-/* 	border: 1px solid black; */
+	/* 	border: 1px solid black; */
 }
 
 #bt1 {
@@ -127,7 +195,7 @@
 
 #bottomLine {
 	width: 100%;
-	border: 0.5px solid grey;
+	border: 0.5px solid #D5D5D5;
 	margin-bottom: 50px;
 }
 
@@ -138,73 +206,170 @@
 }
 </style>
 
+<script type="text/javascript">
+	window.onload = function() {
+		var idInputObj = document.getElementById('idInput');
+		
+		idInputObj.setAttribute('onblur', 'changeMsg1Fnc();');
+		
+		var pwInputObj = document.getElementById('pwInput');
+		
+		pwInputObj.setAttribute('onblur', 'changeMsg2Fnc();');
+	}
+	
+	function changeMsg1Fnc(){
+		var idInputObj = document.getElementById('idInput');
+		var email = idInputObj.value;
+		var emailForm = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		var inputMsgList = document.getElementsByClassName('inputMsg');
+		
+		if(email == ''){
+			idInputObj.style.border = '0.5px solid red';
+			inputMsgList[0].style.color = 'red';
+ 			inputMsgList[0].innerHTML = '보유하신 이메일을 입력해주세요.';
+		}else if(emailForm.test(email) == true){
+			idInputObj.style.border = '0.5px solid #5a6ff2';
+			inputMsgList[0].style.color = '#5a6ff2';
+			inputMsgList[0].innerHTML = '사용 가능한 이메일입니다.';
+		}else if(emailForm.test(email) == false){
+			idInputObj.style.border = '0.5px solid red';
+			inputMsgList[0].style.color = 'red';
+			inputMsgList[0].innerHTML = '유효하지 않은 이메일 형식입니다.';
+		}
+	}
+	
+	function changeMsg2Fnc(){
+		var pwInputObj = document.getElementById('pwInput');
+		var pw = pwInputObj.value;
+		var pwForm = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-])(?=.*[0-9])$/;
+		var inputMsgList = document.getElementsByClassName('inputMsg');
+			
+
+		if(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,16}$/.test(pw)){
+
+			pwInputObj.style.border = '0.5px solid #5a6ff2';
+ 			inputMsgList[2].style.color = '#5a6ff2';
+ 			inputMsgList[2].innerHTML = '사용 가능한 비밀번호입니다.';
+		}
+		
+ 		if(pw == ''){
+ 			pwInputObj.style.border = '0.5px solid red';
+ 			inputMsgList[2].style.color = 'red';
+			inputMsgList[2].innerHTML = '비밀번호를 입력해주세요.';
+ 		}else if(pw.length < 10 || pw.length > 16){
+ 			pwInputObj.style.border = '0.5px solid red';
+ 			inputMsgList[2].style.color = 'red';
+ 			inputMsgList[2].innerHTML = '비밀번호는 10~16자 이내로 입력해주세요.';
+ 		}else if(pwForm.test(pw) == false){
+ 			pwInputObj.style.border = '0.5px solid red';
+ 			inputMsgList[2].style.color = 'red';
+			inputMsgList[2].innerHTML = '영문/숫자/특수문자를 모두 조합하여 입력해주세요.';
+  		}
+			
+	}
+
+	function refreshFnc() {
+		var result=confirm('입력하신 모든 정보가 초기화됩니다.\n정말 새로 입력하시겠습니까?');
+		
+		if(result){
+			location.href='./membership.jsp';
+		}
+	}
+</script>
+
 </head>
 
 <body>
 
 	<div id='wrap'>
-		<div id='secondWrap'>
-			<h2>
-				<img id='basicInfo' src='./images/userinfo.gif'>
-			</h2>
-			<div id='infoLine'></div>
-			<div class='underDiv'>
-				<div class='secondUnderDiv'>
-					<span class='leftText'>넥슨ID</span>
-				</div>
-				<div class='thirdUnderDiv'>
-					<input type="text" id='idInput' placeholder='넥슨ID (이메일)' />
-					<button id='certification'>인증번호 발송</button>
-					<p class='inputMsg'>
-						보유하신 <strong>이메일</strong>을 입력해주세요.
-					</p>
-				</div>
+		<div id="header">
+			<div id="menuBox">
+				<a> <img id="menuIcon" alt="menuIcon" src="./images/menu.png">
+					<span class="menuFont" style="width: 30px;">메뉴</span>
+				</a>
 			</div>
-
-			<div class='underDiv'>
-				<div class='secondUnderDiv'>
-					<span class='leftText'>인증번호</span>
+			<img id="logoBox" alt="logo" src="./images/logo_nexon.png">
+			<div id="rightHBox">
+				<div id="PCBox">
+					<span class="menuFont">PC방</span> <span
+						style="color: #9FA1A7; font: 16px Gothic; font-weight: bold;">OFF</span>
 				</div>
-				<div class='thirdUnderDiv'>
-					<input type='text' id='numInput' placeholder="인증번호 입력 (유효시간 5분)" />
-					<p class='inputMsg'>
-						<strong>[인증번호 발송]</strong>을 먼저 진행해주세요.
-					</p>
+				<div id="signUpBox">
+					<a href='./membership.jsp' style='text-decoration: none;'> <span class="menuFont">회원가입</span>
+					</a>
 				</div>
-			</div>
-
-			<div class='underDiv'>
-				<div class='secondUnderDiv'>
-					<span class='leftText'>비밀번호</span>
-				</div>
-				<div class='thirdUnderDiv'>
-					<input type='text' id='pwInput' placeholder="비밀번호" />
-					<p class='inputMsg'>영문/숫자/특수문자를 조합하여 10~16자로 입력해주세요.</p>
-				</div>
-			</div>
-
-			<div class='underDiv'>
-				<div class='secondUnderDiv'>
-					<span class='leftText'>비밀번호 확인</span>
-				</div>
-				<div class='thirdUnderDiv'>
-					<input type='text' id='pwCheckInput' placeholder="비밀번호 확인" />
-					<p class='inputMsg'>
-						<strong>비밀번호</strong>를 다시 한번 입력해주세요.
-					</p>
+				<div id="loginBox">
+					<a id="loginBtn" href='./login.jsp' style='text-decoration: none;'> <span
+						style="font: 16px Gothic; color: #080410; font-weight: bold;">로그인</span>
+					</a>
 				</div>
 			</div>
 		</div>
-		
-		<div id='btnWrap'>
-			<button id='bt1'>다음</button>
-			<form action="./membership.jsp">
-				<input id='bt2' type="submit" value="새로 입력">
-			</form>
-		</div>
-		
+
+		<div id='headerLine'></div>
+		<form action="./login.jsp">
+			<div id='secondWrap'>
+				<h2>
+					<img id='basicInfo' src='./images/userinfo.gif'>
+				</h2>
+				<div id='infoLine'></div>
+
+				<div class='underDiv'>
+					<div class='secondUnderDiv'>
+						<span class='leftText'>넥슨ID</span>
+					</div>
+					<div class='thirdUnderDiv'>
+						<input type="email" id='idInput' placeholder='넥슨ID (이메일)' />
+						<input id='certification' type="button" value='인증번호 발송' />
+						<p class='inputMsg'>
+							보유하신 <strong>이메일</strong>을 입력해주세요.
+						</p>
+					</div>
+				</div>
+
+				<div class='underDiv'>
+					<div class='secondUnderDiv'>
+						<span class='leftText'>인증번호</span>
+					</div>
+					<div class='thirdUnderDiv'>
+						<input type='text' id='numInput' placeholder="인증번호 입력 (유효시간 5분)" />
+						<p class='inputMsg'>
+							<strong>[인증번호 발송]</strong>을 먼저 진행해주세요.
+						</p>
+					</div>
+				</div>
+
+				<div class='underDiv'>
+					<div class='secondUnderDiv'>
+						<span class='leftText'>비밀번호</span>
+					</div>
+					<div class='thirdUnderDiv'>
+						<input type='text' id='pwInput' placeholder="비밀번호" />
+						<p class='inputMsg'>영문/숫자/특수문자를 조합하여 10~16자로 입력해주세요.</p>
+					</div>
+				</div>
+
+				<div class='underDiv'>
+					<div class='secondUnderDiv'>
+						<span class='leftText'>비밀번호 확인</span>
+					</div>
+					<div class='thirdUnderDiv'>
+						<input type='password' id='pwCheckInput' placeholder="비밀번호 확인" />
+						<p class='inputMsg'>
+							<strong>비밀번호</strong>를 다시 한번 입력해주세요.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div id='btnWrap'>
+				<input id='bt1' type="submit" value="다음"/>
+				<input id='bt2' type="button" value="새로 입력" onclick='refreshFnc();'/>
+			</div>
+		</form>
+
 		<div id='bottomLine'></div>
-		
+
 		<div id='copyright'>
 			<span>© 2004 NEXON Korea Corporation All Rights Reserved.</span>
 		</div>
