@@ -265,29 +265,34 @@ input[type='radio']:checked {
 						<th class='td4'>게임정보</th>
 					</tr>
 					<tr id='tr2'>
-						<td class='td1'><input type="radio" name="id">xxx0427@naver.com</td>
+						<td class='td1'><input type="radio" name="email" 
+							value="xxx0427@naver.com">xxx0427@naver.com
+						</td>
 						<td class='td2'>2015.07.18</td>
 						<td class='td3'>정상</td>
 						<td class='td4'><a href="">보기</a></td>
 					</tr>
 					<tr id='tr3'>
-						<td class='td1'><input type="radio" name="id">xxx0427</td>
+						<td class='td1'><input type="radio" name="email" 
+							value="xxx0427">xxx0427
+						</td>
 						<td class='td2'>2011.09.08</td>
 						<td class='td3' id='red'>비정상</td>
 						<td class='td4'><a href="">보기</a></td>
 					</tr>
 					<tr id='tr4'>
-						<td class='td1'><input type="radio" name="id">xxy0455@daum.net</td>
+						<td class='td1'><input type="radio" name="email" 
+							value="xxy0455@daum.net">xxy0455@daum.net
+						</td>
 						<td class='td2'>2011.01.07</td>
 						<td class='td3'>정상</td>
 						<td class='td4'><a href="">보기</a></td>
 					</tr>
 				</table>
-				<div><input id="testInput" name="testInput" value=""></div>
 			</div>
 			<div id='Btn'>
 				<input id='lgnBtn' type="submit" value="로그인">
-				<input id='passwordBtn' type="submit" value="비밀번호 재설정">
+				<input id='passwordBtn' type="button" value="비밀번호 재설정">
 			</div>
 		</div>
 	</form>
