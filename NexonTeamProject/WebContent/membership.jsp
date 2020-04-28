@@ -208,6 +208,15 @@
 
 <script type="text/javascript">
 	window.onload = function() {
+		
+		var bt1Obj = document.getElementById('bt1');
+		var bt2Obj = document.getElementById('bt2');
+		var certificationObj = document.getElementById('certification');
+		
+		bt1Obj.style.cursor = 'pointer';
+		bt2Obj.style.cursor = 'pointer';
+		certificationObj.style.cursor = 'pointer';
+		
 		var idInputObj = document.getElementById('idInput');
 		
 		idInputObj.setAttribute('onblur', 'changeMsg1Fnc();');
@@ -215,6 +224,10 @@
 		var pwInputObj = document.getElementById('pwInput');
 		
 		pwInputObj.setAttribute('onblur', 'changeMsg2Fnc();');
+		
+		var pwCheckInputObj = document.getElementById('pwCheckInput');
+		
+		pwCheckInputObj.setAttribute('onblur', 'changeMsg3Fnc();');
 	}
 	
 	function changeMsg1Fnc(){
@@ -241,31 +254,61 @@
 	function changeMsg2Fnc(){
 		var pwInputObj = document.getElementById('pwInput');
 		var pw = pwInputObj.value;
-		var pwForm = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-])(?=.*[0-9])$/;
 		var inputMsgList = document.getElementsByClassName('inputMsg');
 			
-
-		if(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,16}$/.test(pw)){
-
-			pwInputObj.style.border = '0.5px solid #5a6ff2';
- 			inputMsgList[2].style.color = '#5a6ff2';
- 			inputMsgList[2].innerHTML = '사용 가능한 비밀번호입니다.';
-		}
+		var num = pw.search(/[0-9]/g);
+		var eng = pw.search(/[a-z]/ig);
+		var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 		
- 		if(pw == ''){
- 			pwInputObj.style.border = '0.5px solid red';
+		
+		if(pw.length == 0){
+			pwInputObj.style.border = '0.5px solid red';
  			inputMsgList[2].style.color = 'red';
 			inputMsgList[2].innerHTML = '비밀번호를 입력해주세요.';
- 		}else if(pw.length < 10 || pw.length > 16){
- 			pwInputObj.style.border = '0.5px solid red';
+		}else if(pw.length < 10 || pw.length > 16){
+			pwInputObj.style.border = '0.5px solid red';
  			inputMsgList[2].style.color = 'red';
  			inputMsgList[2].innerHTML = '비밀번호는 10~16자 이내로 입력해주세요.';
- 		}else if(pwForm.test(pw) == false){
- 			pwInputObj.style.border = '0.5px solid red';
+		}else if(num < 0 || eng < 0 || spe < 0){
+			pwInputObj.style.border = '0.5px solid red';
  			inputMsgList[2].style.color = 'red';
 			inputMsgList[2].innerHTML = '영문/숫자/특수문자를 모두 조합하여 입력해주세요.';
-  		}
-			
+		}else{
+			pwInputObj.style.border = '0.5px solid #5a6ff2';
+			inputMsgList[2].style.color = '#5a6ff2';
+			inputMsgList[2].innerHTML = '사용 가능한 비밀번호입니다.';
+		}
+		
+	}
+	
+	function changeMsg3Fnc() {
+
+		var pwInputObj = document.getElementById('pwInput');
+		var pw = pwInputObj.value;
+
+		var pwCheckInputObj = document.getElementById('pwCheckInput');
+		var pwCheck = pwCheckInputObj.value;
+
+		var inputMsgList = document.getElementsByClassName('inputMsg');
+		
+		if(pwCheck == ''){
+			pwCheckInputObj.style.border = '0.5px solid red';
+			inputMsgList[3].style.color = 'red';
+			inputMsgList[3].innerHTML = '비밀번호를 입력해주세요.';
+		}else if(pwCheck == pw){
+			pwCheckInputObj.style.border = '0.5px solid #5a6ff2';
+			inputMsgList[3].style.color = '#5a6ff2';
+			inputMsgList[3].innerHTML = '입력한 비밀번호가 일치합니다.';
+		}else{
+			pwCheckInputObj.style.border = '0.5px solid red';
+			inputMsgList[3].style.color = 'red';
+			inputMsgList[3].innerHTML = '입력한 비밀번호가 서로 일치하지 않습니다.';
+		}
+		
+		
+		
+		
+		
 	}
 
 	function refreshFnc() {
@@ -354,7 +397,7 @@
 						<span class='leftText'>비밀번호 확인</span>
 					</div>
 					<div class='thirdUnderDiv'>
-						<input type='password' id='pwCheckInput' placeholder="비밀번호 확인" />
+						<input type='text' id='pwCheckInput' placeholder="비밀번호 확인" />
 						<p class='inputMsg'>
 							<strong>비밀번호</strong>를 다시 한번 입력해주세요.
 						</p>
