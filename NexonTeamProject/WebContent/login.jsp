@@ -99,10 +99,22 @@
 		loginBox.setAttribute('onmouseenter', 'changeBtnBlue();');
 		loginBox.setAttribute('onmouseleave', 'changeBtnWhite();');
 		
-		/* test */
-// 		var testInput = request.getParameter("testInput");
-// 		alert(testInput);
-// 		document.getElementById('testInput').innerHTML = testInput;
+		/* url주소에 변수들을 추가로 가져오면 input placeholder변경 */
+		var urlTxt = location.href;
+// 		alert(urlTxt);
+		var urlSplitTxtList = urlTxt.split('?');
+		var emailTxt = urlSplitTxtList[1].split('=');
+		if(urlSplitTxtList.length == 2){
+// 			alert("길이는 2");
+			var userIdObj = document.getElementById('userId');
+			userIdObj.removeAttribute('placeholder');
+			var userPwdObj = document.getElementById('userPwd');
+			userIdObj.removeAttribute('placeholder');
+			
+			
+			var emailId = emailTxt[1].replace('%40', '@');
+			userIdObj.setAttribute('value', emailId);
+		}
 	}
 	
 	function changeBtnBlue(){
@@ -122,6 +134,7 @@
 
 		loginBtn.children[0].style.color = "#080410";
 	}
+	
 </script>
 </head>
 <body>
@@ -185,10 +198,7 @@
 			<span class="bottomMenuFont">넥슨 회원가입</span>
 			<span class="bottomMenuFont" style="padding-left: 143px;">보안센터</span>
 		</div>
-<%
-			String testInput = request.getParameter("testInput"); 
-%>
-		<p id="testInput"><%=testInput %></p>
+
 	</div>
 </body>
 </html>
