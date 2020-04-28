@@ -98,6 +98,11 @@
 
 		loginBox.setAttribute('onmouseenter', 'changeBtnBlue();');
 		loginBox.setAttribute('onmouseleave', 'changeBtnWhite();');
+		
+		/* test */
+// 		var testInput = request.getParameter("testInput");
+// 		alert(testInput);
+// 		document.getElementById('testInput').innerHTML = testInput;
 	}
 	
 	function changeBtnBlue(){
@@ -180,6 +185,10 @@
 			<span class="bottomMenuFont">넥슨 회원가입</span>
 			<span class="bottomMenuFont" style="padding-left: 143px;">보안센터</span>
 		</div>
+<%
+			String testInput = request.getParameter("testInput"); 
+%>
+		<p id="testInput"><%=testInput %></p>
 	</div>
 </body>
 </html>

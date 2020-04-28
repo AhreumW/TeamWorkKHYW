@@ -242,55 +242,54 @@ input[type='radio']:checked {
 			</div>
 		</div>
 	</div>
-	<div id='main'>
-		<div>
-			<div id='id'>
-				<a>넥슨ID찾기</a>
+	<form action="./login.jsp" method="get">
+		<div id='main'>
+			<div>
+				<div id='id'>
+					<a>넥슨ID찾기</a>
+				</div>
+				<div id='password'>
+					<a>비밀번호찾기</a>
+				</div>
+				<div id='line'></div>
 			</div>
-			<div id='password'>
-				<a>비밀번호찾기</a>
+			<div id='htag'>
+				<h4>고객님의 정보와 일치하는 넥슨ID 입니다.</h4>
 			</div>
-			<div id='line'></div>
-		</div>
-		<div id='htag'>
-			<h4>고객님의 정보와 일치하는 넥슨ID 입니다.</h4>
-		</div>
-		<div>
-			<table id='table'>
-				<tr id='tr1'>
-					<th class='td1'>넥슨ID</th>
-					<th class='td2'>가입일</th>
-					<th class='td3' id='black'>회원상태</th>
-					<th class='td4'>게임정보</th>
-				</tr>
-				<tr id='tr2'>
-					<td class='td1'><input type="radio" name="id">xxx0427@naver.com</td>
-					<td class='td2'>2015.07.18</td>
-					<td class='td3'>정상</td>
-					<td class='td4'><a href="">보기</a></td>
-				</tr>
-				<tr id='tr3'>
-					<td class='td1'><input type="radio" name="id">xxx0427</td>
-					<td class='td2'>2011.09.08</td>
-					<td class='td3' id='red'>비정상</td>
-					<td class='td4'><a href="">보기</a></td>
-				</tr>
-				<tr id='tr4'>
-					<td class='td1'><input type="radio" name="id">xxy0455@daum.net</td>
-					<td class='td2'>2011.01.07</td>
-					<td class='td3'>정상</td>
-					<td class='td4'><a href="">보기</a></td>
-				</tr>
-			</table>
-		</div>
-		<div id='Btn'>
-			<form action="">
+			<div>
+				<table id='table'>
+					<tr id='tr1'>
+						<th class='td1'>넥슨ID</th>
+						<th class='td2'>가입일</th>
+						<th class='td3' id='black'>회원상태</th>
+						<th class='td4'>게임정보</th>
+					</tr>
+					<tr id='tr2'>
+						<td class='td1'><input type="radio" name="id">xxx0427@naver.com</td>
+						<td class='td2'>2015.07.18</td>
+						<td class='td3'>정상</td>
+						<td class='td4'><a href="">보기</a></td>
+					</tr>
+					<tr id='tr3'>
+						<td class='td1'><input type="radio" name="id">xxx0427</td>
+						<td class='td2'>2011.09.08</td>
+						<td class='td3' id='red'>비정상</td>
+						<td class='td4'><a href="">보기</a></td>
+					</tr>
+					<tr id='tr4'>
+						<td class='td1'><input type="radio" name="id">xxy0455@daum.net</td>
+						<td class='td2'>2011.01.07</td>
+						<td class='td3'>정상</td>
+						<td class='td4'><a href="">보기</a></td>
+					</tr>
+				</table>
+				<div><input id="testInput" name="testInput" value=""></div>
+			</div>
+			<div id='Btn'>
 				<input id='lgnBtn' type="submit" value="로그인">
-			</form>
-			<form action="">
 				<input id='passwordBtn' type="submit" value="비밀번호 재설정">
-			</form>
+			</div>
 		</div>
-	</div>
+	</form>
 </body>
 </html>
