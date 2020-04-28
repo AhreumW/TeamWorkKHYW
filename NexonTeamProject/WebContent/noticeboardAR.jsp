@@ -162,6 +162,20 @@ td {
 	margin-right: 10px;
 	float: right;
 }
+a:link {
+	color: red;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: blue;
+	text-decoration: underline;
+}
 </style>
 <script type="text/javascript">
 	
@@ -227,7 +241,7 @@ td {
 					</a>
 				</div>
 				<div id="loginBox">
-					<a id="loginBtn"> <span
+					<a id="loginBtn" href='login.jsp'> <span
 						style="font: 16px Gothic; color: #080410; font-weight: bold;">로그인</span>
 					</a>
 				</div>

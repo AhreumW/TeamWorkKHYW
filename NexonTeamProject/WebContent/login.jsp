@@ -139,6 +139,26 @@
 	    height: 195px;	
 	    background-color: #17191D;
 	}
+	#headerLine {
+	width: 100%;
+	border: 0.5px solid black;
+	margin-bottom: 70px;
+}
+a:link {
+	color: red;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: blue;
+	text-decoration: underline;
+}
+	
 </style>
 <script type="text/javascript">
 	
@@ -192,7 +212,6 @@
 
 	/* 사이드메뉴 */
 	function openMenu() {
-		alert("open");
 		document.getElementById("mySidebar").style.width = "440px";
 	}
 	function closeMenu() {
@@ -206,9 +225,9 @@
 			<a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
 		</div>
 		<div id="sideListBox">
-			<a href="#" class="sideList">회원가입</a>
-			<a href="#" class="sideList">게시판 목록</a>
-			<a href="#" class="sideList">게시판 글쓰기</a>
+			<a href="membership.jsp" class="sideList">회원가입</a>
+			<a href="noticeboard.jsp" class="sideList">게시판 목록</a>
+			<a href="detailnoticeboard.jsp" class="sideList">게시판 글쓰기</a>
 		</div>
 		<div id="otherBox"></div>
 	</div>
@@ -232,12 +251,13 @@
 			</div>
 			
 			<div id="loginBox">
-				<a id="loginBtn">			
+				<a id="loginBtn" href='login.jsp'>			
 					<span style="font:16px Gothic; color:#080410; font-weight: bold;">로그인</span>
 				</a>
 			</div>		
 		</div>
 	</div>
+	<div id='headerLine'></div>
 	
 	<div id="wrapper">
 		<h1 id="wrapHeader">로그인</h1>
