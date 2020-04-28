@@ -157,6 +157,7 @@
 		var urlTxt = location.href;
 // 		alert(urlTxt);
 		var urlSplitTxtList = urlTxt.split('?');
+<<<<<<< HEAD
 		
 		if(urlSplitTxtList.length == 2){
 // 			alert("길이는 2");
@@ -166,6 +167,17 @@
 			userIdObj.removeAttribute('placeholder');
 			
 			var emailTxt = urlSplitTxtList[1].split('=');
+=======
+		var emailTxt = urlSplitTxtList[1].split('=');
+		if(urlSplitTxtList.length == 2){
+// 			alert("길이는 2");
+			var userIdObj = document.getElementById('userId');
+			userIdObj.removeAttribute('placeholder');
+			var userPwdObj = document.getElementById('userPwd');
+			userIdObj.removeAttribute('placeholder');
+			
+			
+>>>>>>> branch 'origin/master' of https://github.com/AhreumW/TeamWorkKHYW.git
 			var emailId = emailTxt[1].replace('%40', '@');
 			userIdObj.setAttribute('value', emailId);
 		}
@@ -190,6 +202,7 @@
 		loginBtn.children[0].style.color = "#080410";
 	}
 	
+<<<<<<< HEAD
 	/* 사이드메뉴 */
 	function openMenu() {
 		alert("open");
@@ -198,6 +211,8 @@
 	function closeMenu() {
 		document.getElementById("mySidebar").style.width = "0";
 	}
+=======
+>>>>>>> branch 'origin/master' of https://github.com/AhreumW/TeamWorkKHYW.git
 </script>
 </head>
 <body>
@@ -272,7 +287,7 @@
 			<span class="bottomMenuFont">넥슨 회원가입</span>
 			<span class="bottomMenuFont" style="padding-left: 143px;">보안센터</span>
 		</div>
-	
+
 	</div>
 	
 </body>
