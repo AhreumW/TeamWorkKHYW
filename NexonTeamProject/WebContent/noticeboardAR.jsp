@@ -164,47 +164,198 @@ td {
 }
 </style>
 <script type="text/javascript">
-	
-	
-	var countList = new Array();
-	function countSave(i, countNum){
+	window.onload = function() {
 		var td5ObjList = document.getElementsByClassName('td5');
-		alert("td5ObjList[i]:"+td5ObjList[i].tagName);
-		alert("i:"+i);
-		alert("countNum:"+countNum);
-		td5ObjList[i].innerHTML = countNum;
+		var td2ObjList = document.getElementsByClassName('td2');
+		var td1Obj = document.getElementsByClassName('td1');
+		var td2Obj = document.getElementsByClassName('td2');
+		var td3Obj = document.getElementsByClassName('td3');
+		var td4Obj = document.getElementsByClassName('td4');
+		var a2Obj = document.getElementById('a2');
+		var a3Obj = document.getElementById('a3');
+		var a4Obj = document.getElementById('a4');
+		var a5Obj = document.getElementById('a5');
+		var a6Obj = document.getElementsByClassName('a6');
+		
+
+		//작성자, 제목 받기
+		var urText = location.href;
+		//번호
+		for (var i = 1; i < td1Obj.length; i++) {
+			td1Obj[i].innerHTML = i;
+		}
+		
+		//2번 버튼 눌렀을때 이벤트
+		a2Obj.setAttribute('onclick', 'pageEve1Fnc();');
+		//3번 버튼 눌렀을때 이벤트
+		a3Obj.setAttribute('onclick', 'pageEve2Fnc();');
+		//4번 버튼 눌렀을때 이벤트
+		a4Obj.setAttribute('onclick', 'pageEve3Fnc();');
+		//5번 버튼 눌렀을때 이벤트
+		a5Obj.setAttribute('onclick', 'pageEve4Fnc();');
+		//왼쪽 화살표 버튼 눌렀을 경우
+		a6Obj[0].setAttribute('onclick', 'eve2Fnc();');
+		//오른쪽 화살표 버튼 눌렀을경우
+		a6Obj[1].setAttribute('onclick', 'eveFnc();');
+		
+		for(var i=1; i<td5ObjList.length; i++){
+			td5ObjList[i].innerHTML = 0;
+		}	
+				
+		for(var i=1; i<td2ObjList.length; i++){
+			td2ObjList[i].setAttribute("onclick","eveBtnFnc("+i+");");			
+		}
+		
+		/* url주소에 변수들을 추가로 가져오면 input placeholder변경 */
+		var urlTxt = decodeURIComponent(location.href);
+// 		userID=1234&title=2334
+		var urlSplitTxtList = urlTxt.split('?');
+		if(urlSplitTxtList.length == 2){
+			var idTxt = urlSplitTxtList[1].split('&');
+			var id2Txt = idTxt[0].split('=');
+			var titleTxt = idTxt[1].split('=');
+			var timeTxt = idTxt[2].split('=');	
+			
+			var nameId = id2Txt[1];
+			var titleName = titleTxt[1];
+			//시간 형식 바꾸기 
+			var timeName = timeTxt[1].replace('+', ' ');
+
+			td3Obj[1].innerHTML = nameId;
+			td2Obj[1].innerHTML = titleName;
+			td4Obj[1].innerHTML = timeName;
+		}
 	}
-	
+		
+		 
+
 	function eveBtnFnc(i) {
 // 		alert(i);
 		
 		var td5ObjList = document.getElementsByClassName('td5');
 		
 		countList[i] = Number(td5ObjList[i].innerHTML);
-		alert(countList[i]);
 		
 		countList[i]++;
 		
 		countSave(i,countList[i]);
 		
 	}
-	window.onload = function() {
-		
+
+	var countList = new Array();
+	function countSave(i, countNum){
 		var td5ObjList = document.getElementsByClassName('td5');
-		for(var i=1; i<td5ObjList.length; i++){
-			td5ObjList[i].innerHTML = 0;
-		}
-		
-		
-		var td2ObjList = document.getElementsByClassName('td2');
-		
-		for(var i=1; i<td2ObjList.length; i++){
-// 			td2ObjList[i].addEventListener("click",eveBtnFnc(i),false);
-			td2ObjList[i].setAttribute("onclick","eveBtnFnc("+i+");");			
-		}
-		
-// 		td2ObjList[1].addEventListener("click",eveBtnFnc,false);
+		td5ObjList[i].innerHTML = countNum;
 	}
+	function pageEve0Fnc() {
+		var td2ObjList = document.getElementsByClassName('td2');
+		var td1Obj = document.getElementsByClassName('td1');
+		var td5ObjList = document.getElementsByClassName('td5');
+
+		for (var i = 1; i < td1Obj.length; i++) {
+			countList[i] = 0;
+			td5ObjList[i].innerHTML = countList[i];
+			td1Obj[i].innerHTML = i;
+		}
+
+		for (var i = 1; i < td2ObjList.length; i++) {
+			td2ObjList[i].innerHTML = ('<span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span>');
+		}
+	}
+	function pageEve1Fnc() {
+		var td2ObjList = document.getElementsByClassName('td2');
+		var td1Obj = document.getElementsByClassName('td1');
+		var td5ObjList = document.getElementsByClassName('td5');
+
+		for (var i = 1; i < td1Obj.length; i++) {
+			countList[i] = 0;
+			td5ObjList[i].innerHTML = countList[i];
+			td1Obj[i].innerHTML = i + 10;
+		}
+
+		for (var i = 1; i < td2ObjList.length; i++) {
+			td2ObjList[i].innerHTML = ('<span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span>');
+		}
+
+	}
+	function pageEve2Fnc() {
+		var td2ObjList = document.getElementsByClassName('td2');
+		var td1Obj = document.getElementsByClassName('td1');
+		var td5ObjList = document.getElementsByClassName('td5');
+
+		for (var i = 1; i < td1Obj.length; i++) {
+			countList[i] = 0;
+			td5ObjList[i].innerHTML = countList[i];
+			td1Obj[i].innerHTML = i + 20;
+		}
+
+		for (var i = 1; i < td2ObjList.length; i++) {
+			td2ObjList[i].innerHTML = ('<span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span>');
+		}
+
+	}
+	function pageEve3Fnc() {
+		var td2ObjList = document.getElementsByClassName('td2');
+		var td1Obj = document.getElementsByClassName('td1');
+		var td5ObjList = document.getElementsByClassName('td5');
+
+		for (var i = 1; i < td1Obj.length; i++) {
+			countList[i] = 0;
+			td5ObjList[i].innerHTML = countList[i];
+			td1Obj[i].innerHTML = i + 30;
+		}
+
+		for (var i = 1; i < td2ObjList.length; i++) {
+			td2ObjList[i].innerHTML = ('<span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span>');
+		}
+
+	}
+	function pageEve4Fnc() {
+		var td2ObjList = document.getElementsByClassName('td2');
+		var td1Obj = document.getElementsByClassName('td1');
+		var td5ObjList = document.getElementsByClassName('td5');
+
+		for (var i = 1; i < td1Obj.length; i++) {
+			countList[i] = 0;
+			td5ObjList[i].innerHTML = countList[i];
+			td1Obj[i].innerHTML = i + 40;
+		}
+
+		for (var i = 1; i < td2ObjList.length; i++) {
+			td2ObjList[i].innerHTML = ('<span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span>');
+		}
+
+	}
+	
+	function eveFnc() {
+		var td1Obj = document.getElementsByClassName('td1')[10];
+		
+
+			/* if (0 < td1Obj[i] <= 10) {
+				a6Obj[i]
+			} else */ if (Number(td1Obj.innerHTML) == 10) {
+				pageEve1Fnc();
+			} else if (Number(td1Obj.innerHTML) == 20) {
+				pageEve2Fnc();
+			} else if (Number(td1Obj.innerHTML) == 30) {
+				pageEve3Fnc();
+			} else if (Number(td1Obj.innerHTML) == 40) {
+				pageEve4Fnc();
+			}
+	}
+	function eve2Fnc() {
+		var td1Obj = document.getElementsByClassName('td1')[10];
+			if(Number(td1Obj.innerHTML) == 20) {
+				pageEve0Fnc();
+			} else if (Number(td1Obj.innerHTML) == 30) {
+				pageEve1Fnc();
+			} else if (Number(td1Obj.innerHTML) == 40) {
+				pageEve2Fnc();
+			} else if (Number(td1Obj.innerHTML) == 50) {
+				pageEve3Fnc();
+			}
+	}
+	
 </script>
 </head>
 
@@ -236,7 +387,7 @@ td {
 		<div id='subMain'>
 			<div id='one'>
 				<div id='ask'>
-					<span id="list">전체게시글 : 14</span>
+					<span id="list">전체게시글 : 50</span>
 				</div>
 
 			</div>
@@ -250,84 +401,87 @@ td {
 						<td class='td5'>조회</td>
 					</tr>
 					<tr class='tr2'>
-						<td class='td1'>1</td>
-						<td class='td2'>1번째 게시물입니다</td>
+						<td class='td1'></td>
+						<td class='td2'><span>1번째 게시물입니다</span></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
-						<td class='td5'></td>
+						<td class='td5'><div class='into1'></div></td>
 					</tr>
 					<tr class='tr2'>
-						<td class='td1'>2</td>
-						<td class='td2'><a href="javascript:void(0);">2번째 게시물입니다</a></td>
+						<td class='td1'></td>
+						<td class='td2'><span>2번째 게시물입니다</span></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
-						<td class='td5'></td>
+						<td class='td5'><div class='into1'></div></td>
 					</tr>
 					<tr class='tr2'>
-						<td class='td1'>3</td>
-						<td class='td2'><a href="">3번째 게시물입니다</a></td>
+						<td class='td1'></td>
+						<td class='td2'><span>3번째 게시물입니다</span></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
-						<td class='td5'></td>
+						<td class='td5'><div class='into1'></div></td>
 					</tr>
 					<tr class='tr2'>
-						<td class='td1'>4</td>
-						<td class='td2'><a href="">4번째 게시물입니다</a></td>
+						<td class='td1'></td>
+						<td class='td2'><span>4번째 게시물입니다</span></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
-						<td class='td5'></td>
+						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr class='tr2'>
-						<td class='td1'>5</td>
-						<td class='td2'><a href="">5번째 게시물입니다</a></td>
+						<td class='td1'></td>
+						<td class='td2'><span>5번째 게시물입니다</span></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
-						<td class='td5'></td>
+						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr class='tr2'>
-						<td class='td1'>6</td>
-						<td class='td2'><a href="">6번째 게시물입니다</a></td>
+						<td class='td1'></td>
+						<td class='td2'><span>6번째 게시물입니다</span></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
-						<td class='td5'></td>
+						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr class='tr2'>
-						<td class='td1'>7</td>
-						<td class='td2'><a href="">7번째 게시물입니다</a></td>
+						<td class='td1'></td>
+						<td class='td2'><span>7번째 게시물입니다</span></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
-						<td class='td5'></td>
+						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr class='tr2'>
-						<td class='td1'>8</td>
-						<td class='td2'><a href="">8번째 게시물입니다</a></td>
+						<td class='td1'></td>
+						<td class='td2'><span>8번째 게시물입니다</span></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
-						<td class='td5'></td>
+						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr class='tr2'>
-						<td class='td1'>9</td>
-						<td class='td2'><a href="">9번째 게시물입니다</a></td>
+						<td class='td1'></td>
+						<td class='td2'><span>9번째 게시물입니다</span></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
-						<td class='td5'></td>
+						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr id='tr3'>
-						<td class='td1'>10</td>
-						<td class='td2'><a href="">10번째 게시물입니다</a></td>
+						<td class='td1'></td>
+						<td class='td2'><span>10번째 게시물입니다</span></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
-						<td class='td5'></td>
+						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 
 				</table>
 			</div>
 			<div id='num'>
-				<a href="">&#9664;</a> <a href="">[1]</a> <a href="">[2]</a> <a
-					href="">[3]</a> <a href="">[4]</a> <a href="">[5]</a> <a href="">&#9654;</a>
+				<span class='a6'>&#9664;</span> <span>[1]</span> <span id='a2'>[2]</span>
+				<span id='a3'>[3]</span> <span id='a4'>[4]</span> <span id='a5'>[5]</span>
+				<span class='a6'>&#9654;</span>
 			</div>
 			<div id='bg'>
-				<input type="submit" id='btn' value="글쓰기">
+				<form action="detailnoticeboard.jsp">
+					<input type="submit" id='btn' value="글쓰기">
+				</form>
 			</div>
 		</div>
 	</div>
