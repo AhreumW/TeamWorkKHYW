@@ -90,10 +90,64 @@
 	.bottomMenuForm{
 		padding-right: 7px; border-right:1px solid #D9D9DA;
 	}
+	
+	/* 사이드 메뉴 */
+	.sidebar {
+	  height: 100%;
+	  width: 0;
+	  position: fixed;
+	  z-index: 1;
+	  top: 0;
+	  left: 0;
+	  background-color: #fff;
+	  overflow-x: hidden;
+	  transition: 0.5s;
+	  padding-top: 60px;
+	}
+	.sidebar a {
+	  text-decoration: none;
+	  font-size: 20px;
+	  color: #818181;
+	  display: block;
+	  transition: 0.3s;
+	}
+	.sideList{
+		padding: 15px 20px;
+	}
+	.sidebar a:hover {
+	  color: #f1f1f1;
+	}
+	.sidebar .closebtn {
+	  position: absolute;
+	  top: 5px;
+	  left: 23px;
+	  font-size: 36px;
+	  color: #17191D;
+	}
+	#mySidebar{
+		border-right: 1px solid #dde1e5;
+	}
+	#sideHeaderBox{
+		height: 0px;
+		border-bottom: 1px solid #dde1e5;
+	}
+	#sideListBox{
+		height: 700px;
+/*  		background-color: #fafafa;  */
+	}
+	#otherBox{
+	    height: 195px;	
+	    background-color: #17191D;
+	}
 </style>
 <script type="text/javascript">
 	
 	window.onload = function(){
+		/* 사이드메뉴  */
+		var sideBox = document.getElementById('sideMenu');
+		sideBox.setAttribute('onclick', 'openMenu();');
+		
+		/* 로그인버튼 이벤트  */
 		var loginBox = document.getElementById('loginBox');
 
 		loginBox.setAttribute('onmouseenter', 'changeBtnBlue();');
@@ -103,7 +157,7 @@
 		var urlTxt = location.href;
 // 		alert(urlTxt);
 		var urlSplitTxtList = urlTxt.split('?');
-		var emailTxt = urlSplitTxtList[1].split('=');
+		
 		if(urlSplitTxtList.length == 2){
 // 			alert("길이는 2");
 			var userIdObj = document.getElementById('userId');
@@ -111,11 +165,12 @@
 			var userPwdObj = document.getElementById('userPwd');
 			userIdObj.removeAttribute('placeholder');
 			
-			
+			var emailTxt = urlSplitTxtList[1].split('=');
 			var emailId = emailTxt[1].replace('%40', '@');
 			userIdObj.setAttribute('value', emailId);
 		}
 	}
+	
 	
 	function changeBtnBlue(){
 		var loginBtn = document.getElementById('loginBtn');
@@ -135,12 +190,31 @@
 		loginBtn.children[0].style.color = "#080410";
 	}
 	
+	/* 사이드메뉴 */
+	function openMenu() {
+		alert("open");
+		document.getElementById("mySidebar").style.width = "440px";
+	}
+	function closeMenu() {
+		document.getElementById("mySidebar").style.width = "0";
+	}
 </script>
 </head>
 <body>
+	<div id="mySidebar" class="sidebar">
+		<div id="sideHeaderBox">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
+		</div>
+		<div id="sideListBox">
+			<a href="#" class="sideList">회원가입</a>
+			<a href="#" class="sideList">게시판 목록</a>
+			<a href="#" class="sideList">게시판 글쓰기</a>
+		</div>
+		<div id="otherBox"></div>
+	</div>
 	<div id="header">
 		<div id="menuBox">
-			<a>
+			<a id="sideMenu">
 				<img id="menuIcon" alt="menuIcon" src="./images/menu.png">			
 				<span class="menuFont" style="width: 30px;">메뉴</span>
 			</a>
@@ -198,7 +272,8 @@
 			<span class="bottomMenuFont">넥슨 회원가입</span>
 			<span class="bottomMenuFont" style="padding-left: 143px;">보안센터</span>
 		</div>
-
+	
 	</div>
+	
 </body>
 </html>
