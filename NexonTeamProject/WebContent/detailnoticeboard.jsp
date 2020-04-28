@@ -22,13 +22,15 @@
 	}
 	.bottomContainer1 {
 		width: 200px;
-		margin: auto;
+		padding-left: 220px;
 		padding-top: 30px;
 	}
 	.bottomContainer2 {
 		width: 250px;
-		margin: auto;
-		padding-left: 25px;
+		padding-left: 210px;
+	}
+	.bottomContainer2>button>img {
+		cursor: pointer;
 	}
 	.itemSpanBox, .itemSpanBox_textArea {
 		display: inline-block;
@@ -62,6 +64,7 @@
 		margin-bottom: 5px;
 		font-size: 20px;
 		font-weight: bold;
+		cursor:pointer;
 	}
 	.inputButton2 {
 		height: 80px;
@@ -161,6 +164,7 @@
 		}
 	}
 
+	
 </script>
 </head>
 <body>
@@ -199,7 +203,7 @@
 			<h1>친목 게시판 글쓰기</h1>
 			<img class="logoImg2" src="images/logo_nexon.png" alt="로고">
 		</div>
-		<form action=""> <!-- 내용 입력 후 전생 링크 url 삽입 필요  -->
+		<form action="noticeboard.jsp">
 			<div class="middleContainer2">
 				<div>
 					<span class="itemSpanBox">작성자</span>
@@ -219,9 +223,11 @@
 			</div>
 		</form>
 			<div class="bottomContainer2">
-				<button> <!-- 등록하기 버튼 링크 url 삽입 필요 -->
-					<img src="images/button.png" alt="로고">
-				</button>
+				<a href="noticeboard.jsp"> 
+					<button>
+						<img src="images/button.png" alt="로고" >
+					</button>
+				</a>
 			</div>
 
 	</div>
