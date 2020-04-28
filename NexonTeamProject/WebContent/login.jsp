@@ -226,7 +226,7 @@
 				<span style="color:#9FA1A7; font:16px Gothic; font-weight: bold;">OFF</span>
 			</div>
 			<div id="signUpBox">
-				<a>
+				<a href='membership.jsp'>
 					<span class="menuFont">회원가입</span>
 				</a>
 			</div>

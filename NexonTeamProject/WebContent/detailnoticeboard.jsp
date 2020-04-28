@@ -193,6 +193,7 @@ textarea {
 
 		loginBox.setAttribute('onmouseenter', 'changeBtnBlue();');
 		loginBox.setAttribute('onmouseleave', 'changeBtnWhite();');
+
 	}
 
 	function changeBtnBlue() {
@@ -224,6 +225,7 @@ textarea {
 			authorText.style.fontSize = '13px';
 			authorText.innerHTML = '작성자를 입력해주세요.';
 		}
+
 	}
 
 	function titleBtnFnc() {
@@ -254,22 +256,26 @@ textarea {
 		var authorInput = document.getElementsByClassName('itemDetailBox1')[0];
 		var authorText = document.getElementsByClassName('itemDetailEmptyBox')[0];
 		var authorInputValue = authorInput.value;
-		
+
 		var titleInput = document.getElementsByClassName('itemDetailBox2')[0];
 		var titleText = document.getElementsByClassName('itemDetailEmptyBox')[1];
 		var titleInputValue = titleInput.value;
-		
+
 		var contentInput = document.getElementById('textareaBox');
 		var contentText = document.getElementsByClassName('itemDetailEmptyBox')[2];
 		var contentInputValue = contentInput.value;
-		
-		if(authorInputValue != '' && titleInputValue != '' && contentInputValue != ''){	
+
+		if (authorInputValue != '' && titleInputValue != ''
+				&& contentInputValue != '') {
 			var confirmText = confirm('새 게시글을 등록하시겠습니까?');
 			if (confirmText == true) {
 				alert('게시글이 등록되었습니다.');
 			} else {
 				alert('게시글 등록이 취소되었습니다.');
 			}
+		} else if (authorInputValue == '' && titleInputValue == ''
+				&& contentInputValue == '') {
+			alert('게시물 내용이 없습니다. \n게시물 목록으로 넘어갑니다.');
 		}
 	}
 </script>
@@ -308,42 +314,44 @@ textarea {
 				<h1>친목 게시판 글쓰기</h1>
 				<img class="logoImg2" src="images/logo_nexon.png" alt="로고">
 			</div>
-			<form action="">
-				<div class="middleContainer2">
-					<div id="emptyAlarm">
-						<span class="itemSpanBox">작성자</span> <input class="itemDetailBox1"
-							type="text" placeholder=" 작성자명을 입력하세요.">
-					</div>
-
-					<div class="itemDetailEmptyBox">
-						<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
-					</div>
-
-					<div>
-						<span class="itemSpanBox">제 목</span> <input class="itemDetailBox2"
-							type="text" placeholder=" 제목을 입력하세요.">
-					</div>
-
-					<div class="itemDetailEmptyBox">
-						<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
-					</div>
-
-					<div>
-						<span class="itemSpanBox_textArea">내 용</span>
-						<textarea rows="15" cols="82" placeholder=" 내용을 입력하세요."
-							id="textareaBox"></textarea>
-					</div>
-
-					<div class="itemDetailEmptyBox">
-						<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
-					</div>
-
-
+			<form action="noticeboard.jsp">
+			<div class="middleContainer2">
+				<div id="emptyAlarm">
+					<span class="itemSpanBox">작성자</span> <input class="itemDetailBox1"
+						type="text" placeholder=" 작성자명을 입력하세요." name="userID">
 				</div>
-				<div id="bottomContainer1">
-					<input id="inputButton" type="button" value="등록하기">
+
+				<div class="itemDetailEmptyBox">
+					<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
 				</div>
+
+				<div>
+					<span class="itemSpanBox">제 목</span> <input class="itemDetailBox2"
+						type="text" placeholder=" 제목을 입력하세요." name="title">
+				</div>
+
+				<div class="itemDetailEmptyBox">
+					<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
+				</div>
+
+				<div>
+					<span class="itemSpanBox_textArea">내 용</span>
+					<textarea rows="15" cols="82" placeholder=" 내용을 입력하세요."
+						id="textareaBox"></textarea>
+				</div>
+
+				<div class="itemDetailEmptyBox">
+					<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
+				</div>
+
+
+			</div>
+			<div id="bottomContainer1">
+				
+					<input id="inputButton" type="submit" value="등록하기">
+			</div>
 			</form>
+			
 			<div id="bottomContainer2">
 				<a href="noticeboard.jsp">
 					<button>
@@ -351,6 +359,7 @@ textarea {
 					</button>
 				</a>
 			</div>
+				
 
 		</div>
 	</div>
