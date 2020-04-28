@@ -207,7 +207,13 @@
 </style>
 
 <script type="text/javascript">
+
+
+var randomNum = 0;
+	
 	window.onload = function() {
+		
+		
 		
 		var bt1Obj = document.getElementById('bt1');
 		var bt2Obj = document.getElementById('bt2');
@@ -228,6 +234,12 @@
 		var pwCheckInputObj = document.getElementById('pwCheckInput');
 		
 		pwCheckInputObj.setAttribute('onblur', 'changeMsg3Fnc();');
+		
+		var certificateObj = document.getElementById('certification');
+		certificateObj.setAttribute('onclick','AuthenticateFnc();');
+		
+		var numInputObj = document.getElementById("numInput");
+		numInputObj.setAttribute('onchange', 'InputAuthNumFnc();');
 	}
 	
 	function changeMsg1Fnc(){
@@ -307,8 +319,6 @@
 		
 		
 		
-		
-		
 	}
 
 	function refreshFnc() {
@@ -317,6 +327,31 @@
 		if(result){
 			location.href='./membership.jsp';
 		}
+	}
+	
+	
+	function AuthenticateFnc(){
+		randomNum = Math.floor((Math.random() * 10000) + 1);
+ 		alert("인증번호는 "+randomNum+"입니다.");
+	}
+	
+	
+	function InputAuthNumFnc(){
+		var numInputObj = document.getElementById("numInput");
+		
+		var pInputMsgObj = document.getElementsByClassName('inputMsg')[1];
+		
+		if(Number(numInputObj.value) == Number(randomNum)){
+			numInputObj.style.border = '0.5px solid #5a6ff2';
+			pInputMsgObj.style.color = '#5a6ff2';
+			pInputMsgObj.innerHTML = "인증이 완료되었습니다.";
+		}else{
+			numInputObj.style.border = '0.5px solid red';
+			pInputMsgObj.style.color = 'red';
+			pInputMsgObj.innerHTML = "인증에 실패하셨습니다.";
+		}	
+		
+		
 	}
 </script>
 
@@ -338,11 +373,13 @@
 						style="color: #9FA1A7; font: 16px Gothic; font-weight: bold;">OFF</span>
 				</div>
 				<div id="signUpBox">
-					<a href='./membership.jsp' style='text-decoration: none;'> <span class="menuFont">회원가입</span>
+					<a href='./membership.jsp' style='text-decoration: none;'> <span
+						class="menuFont">회원가입</span>
 					</a>
 				</div>
 				<div id="loginBox">
-					<a id="loginBtn" href='./login.jsp' style='text-decoration: none;'> <span
+					<a id="loginBtn" href='./login.jsp' style='text-decoration: none;'>
+						<span
 						style="font: 16px Gothic; color: #080410; font-weight: bold;">로그인</span>
 					</a>
 				</div>
@@ -362,8 +399,8 @@
 						<span class='leftText'>넥슨ID</span>
 					</div>
 					<div class='thirdUnderDiv'>
-						<input type="email" id='idInput' placeholder='넥슨ID (이메일)' />
-						<input id='certification' type="button" value='인증번호 발송' />
+						<input type="email" id='idInput' placeholder='넥슨ID (이메일)' /> <input
+							id='certification' type="button" value='인증번호 발송' />
 						<p class='inputMsg'>
 							보유하신 <strong>이메일</strong>을 입력해주세요.
 						</p>
@@ -406,8 +443,8 @@
 			</div>
 
 			<div id='btnWrap'>
-				<input id='bt1' type="submit" value="다음"/>
-				<input id='bt2' type="button" value="새로 입력" onclick='refreshFnc();'/>
+				<input id='bt1' type="submit" value="다음" /> <input id='bt2'
+					type="button" value="새로 입력" onclick='refreshFnc();' />
 			</div>
 		</form>
 
