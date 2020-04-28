@@ -100,7 +100,8 @@
 }
 
 #line {
-	width: 290px; padding-top : 10px;
+	width: 290px;
+	padding-top: 10px;
 	height: 41px;
 	float: left;
 	border-bottom: 1px solid #CBCBCB;
@@ -168,7 +169,8 @@
 }
 
 #lgnBtn {
-	border: 1px solid #6799FF; background-color : #6799FF;
+	border: 1px solid #6799FF;
+	background-color: #6799FF;
 	color: #FFFFFF;
 	float: left;
 	width: 150px;
@@ -180,7 +182,8 @@
 	margin-left: 15px;
 	background-color: #FFFFFF;
 	color: #6799FF;
-	float: left; width : 150px;
+	float: left;
+	width: 150px;
 	height: 40px;
 	border: 1px solid #6799FF;
 	width: 150px;
@@ -210,20 +213,145 @@ input[type='radio'] {
 }
 
 input[type='radio']:checked {
-  background-color: black;
+	background-color: black;
+}
+/* 사이드 메뉴 */
+.sidebar {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+
+.sidebar a {
+	text-decoration: none;
+	font-size: 20px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+.sideList {
+	padding: 15px 20px;
+}
+
+.sidebar a:hover {
+	color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+	position: absolute;
+	top: 5px;
+	left: 23px;
+	font-size: 36px;
+	color: #17191D;
+}
+
+#mySidebar {
+	border-right: 1px solid #dde1e5;
+}
+
+#sideHeaderBox {
+	height: 0px;
+	border-bottom: 1px solid #dde1e5;
+}
+
+#sideListBox {
+	height: 700px;
+	/*  		background-color: #fafafa;  */
+}
+
+#otherBox {
+	height: 195px;
+	background-color: #17191D;
+}
+
+#headerLine {
+	width: 100%;
+	border: 0.5px solid black;
+	margin-bottom: 70px;
+}
+
+a:link {
+	color: red;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: blue;
+	text-decoration: underline;
 }
 </style>
 <script type="text/javascript">
-	
-	
+	window.onload = function() {
+
+		/* 사이드메뉴  */
+		var sideBox = document.getElementById('sideMenu');
+		sideBox.setAttribute('onclick', 'openMenu();');
+
+		/* 로그인버튼 이벤트  */
+		var loginBox = document.getElementById('loginBox');
+
+		loginBox.setAttribute('onmouseenter', 'changeBtnBlue();');
+		loginBox.setAttribute('onmouseleave', 'changeBtnWhite();');
+
+	}
+	function changeBtnBlue() {
+		var loginBtn = document.getElementById('loginBtn');
+
+		loginBtn.style.backgroundColor = "#07f";
+		loginBtn.style.border = "none";
+
+		loginBtn.children[0].style.color = "#fff";
+	}
+
+	function changeBtnWhite() {
+		var loginBtn = document.getElementById('loginBtn');
+
+		loginBtn.style.backgroundColor = "#fff";
+		loginBtn.style.border = "2px solid #17191D";
+
+		loginBtn.children[0].style.color = "#080410";
+	}
+
+	/* 사이드메뉴 */
+	function openMenu() {
+		document.getElementById("mySidebar").style.width = "440px";
+	}
+	function closeMenu() {
+		document.getElementById("mySidebar").style.width = "0";
+	}
 </script>
 </head>
 
 <body>
+	<div id="mySidebar" class="sidebar">
+		<div id="sideHeaderBox">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
+		</div>
+		<div id="sideListBox">
+			<a href="membership.jsp" class="sideList">회원가입</a> <a
+				href="noticeboard.jsp" class="sideList">게시판 목록</a> <a
+				href="detailnoticeboard.jsp" class="sideList">게시판 글쓰기</a>
+		</div>
+		<div id="otherBox"></div>
+	</div>
 	<div id="header">
 		<div id="menuBox">
-			<a> <img id="menuIcon" alt="menuIcon" src="./images/menu.png">
-				<span class="menuFont" style="width: 30px;">메뉴</span>
+			<a id="sideMenu"> <img id="menuIcon" alt="menuIcon"
+				src="./images/menu.png"> <span class="menuFont"
+				style="width: 30px;">메뉴</span>
 			</a>
 		</div>
 		<img id="logoBox" alt="logo" src="./images/logo_nexon.png">
@@ -233,16 +361,18 @@ input[type='radio']:checked {
 					style="color: #9FA1A7; font: 16px Gothic; font-weight: bold;">OFF</span>
 			</div>
 			<div id="signUpBox">
-				<a> <span class="menuFont">회원가입</span>
+				<a href='membership.jsp'> <span class="menuFont">회원가입</span>
 				</a>
 			</div>
+
 			<div id="loginBox">
-				<a id="loginBtn"> <span
+				<a id="loginBtn" href="login.jsp"> <span
 					style="font: 16px Gothic; color: #080410; font-weight: bold;">로그인</span>
 				</a>
 			</div>
 		</div>
 	</div>
+	<div id='headerLine'></div>
 	<div id='main'>
 		<div>
 			<div id='id'>
