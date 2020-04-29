@@ -416,7 +416,7 @@ a:hover {
 			
 			<div id="loginBox">
 				<a id="loginBtn" href='login.jsp'>			
-					<span style="font:16px Gothic; color:#080410; font-weight: bold;">로그인</span>
+					<span style="font:13px Gothic; color:#080410; font-weight: bold;">로그아웃</span>
 				</a>
 			</div>		
 		</div>
