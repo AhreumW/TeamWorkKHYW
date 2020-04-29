@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-
+<link rel="shortcut icon" href="./images/nexon_favicon.ico">
 <style>
 #header {
 	width: 1900px;

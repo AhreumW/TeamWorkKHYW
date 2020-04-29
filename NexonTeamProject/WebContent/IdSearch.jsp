@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>아이디 찾기</title>
+<link rel="shortcut icon" href="./images/nexon_favicon.ico">
 <style type="text/css">
 #main {
 	width: 600px;

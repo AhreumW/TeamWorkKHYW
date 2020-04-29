@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판 상세</title>
+<link rel="shortcut icon" href="./images/nexon_favicon.ico">
 <style type="text/css">
 .frameContainer {
 	width: 1920px;

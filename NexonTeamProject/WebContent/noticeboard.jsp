@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
+<title>게시판 목록</title>
+<link rel="shortcut icon" href="./images/nexon_favicon.ico">
 <style type="text/css">
 @charset "UTF-8";
 
