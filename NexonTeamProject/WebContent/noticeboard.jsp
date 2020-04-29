@@ -825,7 +825,7 @@ a:hover {
 						<td class='td1'></td>
 						<td class='td2'><a href="#"><span>50번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
-						<td class='td4'>20-04-29 23:00</td>
+						<td class='td4'>20-04-29 24:00</td>
 						<td class='td5'><div class='into1'></div></td>
 					</tr>
 					<tr class='tr2'>
