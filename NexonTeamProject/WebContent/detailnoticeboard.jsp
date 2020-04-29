@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판 상세</title>
+<link rel="shortcut icon" href="./images/nexon_favicon.ico">
 <style type="text/css">
 .frameContainer {
 	width: 1920px;
@@ -407,6 +408,7 @@ a:hover {
 		} else if (authorInputValue == '' && titleInputValue == ''
 				&& contentInputValue == '') {
 			alert('게시물 내용이 없습니다.');
+			location.href('./detailnoticeboard.jsp')
 		}
 	}
 	
@@ -456,7 +458,9 @@ a:hover {
 				<span class="menuFont" style="width: 30px;">메뉴</span>
 			</a>
 		</div>
+		<a href="login.jsp">
 		<img id="logoBox" alt="logo" src="./images/logo_nexon.png">
+		</a>
 		<div id="rightHBox">
 			<div id="PCBox">
 				<span class="menuFont">PC방</span>
