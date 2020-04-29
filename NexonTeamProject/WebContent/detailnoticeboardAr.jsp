@@ -197,8 +197,7 @@ textarea {
 		//현재 시간
 		var currentTimeObj = document.getElementById('currentTime');
 		var time = updateTimeFnc();
-		alert(time);
-		currentTimeObj.setAttribute('value', 'time');
+		currentTimeObj.value= time;
 	}
 	
 	//현재시간 
@@ -206,22 +205,43 @@ textarea {
 		var localTime = new Date();
 		
 		var year = localTime.getYear().toString();
-// 		alert(year);
 		var yearTxt = year.slice(1, 3);
-// 		alert(yearTxt);
 		
 		var month = localTime.getMonth() + 1;
 		if(month.toString().length == 1){
 			var monthTxt = ''+ 0 + month;
+		}else{
+			var monthTxt = ''+ month;
+		}
+		
+		
+		var date = localTime.getDate();
+		if(date.toString().length == 1){
+			var dateTxt = ''+ 0 + date;
+		}else{
+			var dateTxt = ''+ date;
+		}
+		
+		var hour = localTime.getHours();
+		if(hour.toString().length == 1){
+			var hourTxt = ''+ 0 + hour;
+		}else{
+			var hourTxt = ''+ hour;
+		}
+		
+		var minute = localTime.getMinutes();
+		if(minute.toString().length == 1){
+			var minuteTxt = ''+ 0 + minute;
+		}else{
+			var minuteTxt = ''+ minute;
 		}
 		
 		var timeTxt = yearTxt +'-';
-		timeTxt += monthTxt+'-';
-		timeTxt += localTime.getDate() +' ';
-		timeTxt += localTime.getHours()+':';
-		timeTxt += localTime.getMinutes();
+		timeTxt += monthTxt + '-';
+		timeTxt += dateTxt + ' ';
+		timeTxt += hourTxt + ':';
+		timeTxt += minuteTxt;
 		
-		alert(timeTxt);
 		return timeTxt;
 	}
 	
@@ -377,7 +397,7 @@ textarea {
 			</div>
 			
 <!-- 			<input type="hidden" name="hiddenvalue" size=10 value='uiandwe@tistory.com'> -->
-			<input type="hidden" name="currentTime" value="20-04-28 17:46">
+			<input id="currentTime" type="hidden" name="currentTime" value="">
 			
 			<div id="bottomContainer1">	
 				<input id="inputButton" type="submit" value="등록하기">

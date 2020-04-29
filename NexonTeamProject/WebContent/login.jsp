@@ -4,6 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="./images/nexon_favicon.ico">
 	<title>로그인</title>
 <style type="text/css">
 	/* header */
@@ -11,7 +12,7 @@
 		width: 1900px; height: 62px;
 	}
 	#menuBox{
-		float:left; width: 107px; height:64px; padding: 15px 23px 24px;
+		float:left; width: 107px; height: 64px; padding: 15px 23px 24px;
 	}
 	#menuIcon{
 		width:18px; height:16px; margin: 1px 5px 0px 0px;
