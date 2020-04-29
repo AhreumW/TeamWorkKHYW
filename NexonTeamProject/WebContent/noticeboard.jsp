@@ -317,14 +317,13 @@ a:hover {
 // 		userID=1234&title=2334
 		var urlSplitTxtList = urlTxt.split('?');
 		if(urlSplitTxtList.length == 2){
-			alert(urlSplitTxtList[1]);
-			//alert(urlSplitTxtList[1]);
+			
 		var idTxt = urlSplitTxtList[1].split('&');
-		alert("full"+idTxt);
+		
 		var id2Txt = idTxt[0].split('=');
-		alert(id2Txt);
+		
 		var titleTxt = idTxt[1].split('=');
-		alert(titleTxt);
+	
 		var timeTxt = idTxt[2].split('=');	
 			
 			
