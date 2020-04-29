@@ -5,42 +5,77 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style type="text/css">
+@charset "UTF-8";
+
 #main {
 	height: 900px;
 }
 
 /* header */
-	#header{
-		width: 1900px; height: 62px;
-	}
-	#menuBox{
-		float:left; width: 107px; height:64px; padding: 15px 23px 24px;
-	}
-	#menuIcon{
-		width:18px; height:16px; margin: 1px 5px 0px 0px;
-	}
-	#logoBox{
-		width: 130px; height: 62px; float:left; padding-left: 725px;
-	}
-	#rightHBox{
-		width: 300px; float:right; padding-right: 11px;
-	}
-	#PCBox{
-		display: inline-block; box-sizing:border-box; width: 95px; padding: 15px 10px 0px;
-	}
-	#signUpBox{
-		display: inline-block; box-sizing:border-box; width: 90px; padding: 15px 12px 0px;;
-	}
-	#loginBox{
-		display: inline-block; box-sizing:border-box; width: 95px; height:38px;
-	}
-	#loginBtn{
-		padding: 7px 18px; border: 2px solid #17191D; border-radius: 19px;
-	}
-	.menuFont{
-		color: #17191D; font:16px Gothic;
-	}
+#header {
+	width: 1900px;
+	height: 62px;
+}
+
+#menuBox {
+	float: left;
+	width: 107px;
+	height: 64px;
+	padding: 15px 23px 24px;
+}
+
+#menuIcon {
+	width: 18px;
+	height: 16px;
+	margin: 1px 5px 0px 0px;
+}
+
+#logoBox {
+	width: 130px;
+	height: 62px;
+	float: left;
+	padding-left: 725px;
+}
+
+#rightHBox {
+	width: 300px;
+	float: right;
+	padding-right: 11px;
+}
+
+#PCBox {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 95px;
+	padding: 15px 10px 0px;
+}
+
+#signUpBox {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 90px;
+	padding: 15px 12px 0px;;
+}
+
+#loginBox {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 95px;
+	height: 38px;
+}
+
+#loginBtn {
+	padding: 7px 18px;
+	border: 2px solid #17191D;
+	border-radius: 19px;
+}
+
+.menuFont {
+	color: #17191D;
+	font: 16px Gothic;
+}
 
 #subMain {
 	width: 1100px;
@@ -132,58 +167,68 @@ td {
 	float: right;
 }
 /* 사이드 메뉴 */
-	.sidebar {
-	  height: 100%;
-	  width: 0;
-	  position: fixed;
-	  z-index: 1;
-	  top: 0;
-	  left: 0;
-	  background-color: #fff;
-	  overflow-x: hidden;
-	  transition: 0.5s;
-	  padding-top: 60px;
-	}
-	.sidebar a {
-	  text-decoration: none;
-	  font-size: 20px;
-	  color: #818181;
-	  display: block;
-	  transition: 0.3s;
-	}
-	.sideList{
-		padding: 15px 20px;
-	}
-	.sidebar a:hover {
-	  color: #f1f1f1;
-	}
-	.sidebar .closebtn {
-	  position: absolute;
-	  top: 5px;
-	  left: 23px;
-	  font-size: 36px;
-	  color: #17191D;
-	}
-	#mySidebar{
-		border-right: 1px solid #dde1e5;
-	}
-	#sideHeaderBox{
-		height: 0px;
-		border-bottom: 1px solid #dde1e5;
-	}
-	#sideListBox{
-		height: 700px;
-/*  		background-color: #fafafa;  */
-	}
-	#otherBox{
-	    height: 195px;	
-	    background-color: #17191D;
-	}
-	#headerLine {
+.sidebar {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+
+.sidebar a {
+	text-decoration: none;
+	font-size: 20px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+.sideList {
+	padding: 15px 20px;
+}
+
+.sidebar a:hover {
+	color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+	position: absolute;
+	top: 5px;
+	left: 23px;
+	font-size: 36px;
+	color: #17191D;
+}
+
+#mySidebar {
+	border-right: 1px solid #dde1e5;
+}
+
+#sideHeaderBox {
+	height: 0px;
+	border-bottom: 1px solid #dde1e5;
+}
+
+#sideListBox {
+	height: 700px;
+	/*  		background-color: #fafafa;  */
+}
+
+#otherBox {
+	height: 195px;
+	background-color: #17191D;
+}
+
+#headerLine {
 	width: 100%;
 	border: 0.5px solid black;
 	margin-bottom: 70px;
 }
+
 a:link {
 	color: red;
 	text-decoration: none;
@@ -198,8 +243,12 @@ a:hover {
 	color: blue;
 	text-decoration: underline;
 }
-	
 </style>
+
+
+
+
+
 <script type="text/javascript">
 	window.onload = function() {
 		var td5ObjList = document.getElementsByClassName('td5');
@@ -278,7 +327,6 @@ a:hover {
 			td3Obj[1].innerHTML = nameId;
 			td2Obj[1].innerHTML = titleName;
 		}
-		
 		//1번째 페이지 시간
 		var dt = 23;
 		var mi = 60;
@@ -333,6 +381,7 @@ a:hover {
 		var td1Obj = document.getElementsByClassName('td1');
 		var td5ObjList = document.getElementsByClassName('td5');
 		var td4ObjList = document.getElementsByClassName('td4');
+		var td3ObjList = document.getElementsByClassName('td3');
 		var a1Obj = document.getElementById('a1');
 		var a2Obj = document.getElementById('a2');
 		var a3Obj = document.getElementById('a3');
@@ -373,6 +422,10 @@ a:hover {
 			if(dt < 10 && mi < 10) {
 				td4ObjList[i].innerHTML = '20-04-29 0' + dt + ':0' + mi;
 			}
+		}
+		
+		for (var i = 0; i < td3ObjList.length; i++) {
+			td3ObjList[i].innerHTML = '운영자';
 		}
 	
 		
@@ -430,6 +483,9 @@ a:hover {
 				td4ObjList[i].innerHTML = '20-04-28 0' + dt + ':0' + mi;
 			}
 		}
+		for (var i = 0; i < td3ObjList.length; i++) {
+			td3ObjList[i].innerHTML = '운영자';
+		}
 		
 		a1Obj.style.color = 'black';
 		a2Obj.style.color = 'blue';
@@ -483,6 +539,10 @@ a:hover {
 				td4ObjList[i].innerHTML = '20-04-27 0' + dt + ':0' + mi;
 			}
 		}
+		for (var i = 0; i < td3ObjList.length; i++) {
+			td3ObjList[i].innerHTML = '운영자';
+		}
+		
 		a1Obj.style.color = 'black';
 		a2Obj.style.color = 'black';
 		a3Obj.style.color = 'blue';
@@ -536,7 +596,9 @@ a:hover {
 				td4ObjList[i].innerHTML = '20-04-26 0' + dt + ':0' + mi;
 			}
 		}
-		
+		for (var i = 0; i < td3ObjList.length; i++) {
+			td3ObjList[i].innerHTML = '운영자';
+		}
 		
 		
 		a1Obj.style.color = 'black';
@@ -592,6 +654,10 @@ a:hover {
 			if(dt < 10 && mi < 10) {
 				td4ObjList[i].innerHTML = '20-04-25 0' + dt + ':0' + mi;
 			}
+		}
+		
+		for (var i = 0; i < td3ObjList.length; i++) {
+			td3ObjList[i].innerHTML = '운영자';
 		}
 		a1Obj.style.color = 'black';
 		a2Obj.style.color = 'black';
