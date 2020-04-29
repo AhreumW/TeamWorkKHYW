@@ -270,9 +270,59 @@ a:hover {
 
 		loginBox.setAttribute('onmouseenter', 'changeBtnBlue();');
 		loginBox.setAttribute('onmouseleave', 'changeBtnWhite();');
+		
+		//현재 시간
+		var currentTimeObj = document.getElementById('currentTime');
+		var time = updateTimeFnc();
+		currentTimeObj.value= time;
 
 	}
 
+	//현재시간 
+	function updateTimeFnc(){
+		var localTime = new Date();
+		
+		var year = localTime.getYear().toString();
+		var yearTxt = year.slice(1, 3);
+		
+		var month = localTime.getMonth() + 1;
+		if(month.toString().length == 1){
+			var monthTxt = ''+ 0 + month;
+		}else{
+			var monthTxt = ''+ month;
+		}
+		
+		
+		var date = localTime.getDate();
+		if(date.toString().length == 1){
+			var dateTxt = ''+ 0 + date;
+		}else{
+			var dateTxt = ''+ date;
+		}
+		
+		var hour = localTime.getHours();
+		if(hour.toString().length == 1){
+			var hourTxt = ''+ 0 + hour;
+		}else{
+			var hourTxt = ''+ hour;
+		}
+		
+		var minute = localTime.getMinutes();
+		if(minute.toString().length == 1){
+			var minuteTxt = ''+ 0 + minute;
+		}else{
+			var minuteTxt = ''+ minute;
+		}
+		
+		var timeTxt = yearTxt +'-';
+		timeTxt += monthTxt + '-';
+		timeTxt += dateTxt + ' ';
+		timeTxt += hourTxt + ':';
+		timeTxt += minuteTxt;
+		
+		return timeTxt;
+	}
+	
 	function changeBtnBlue() {
 		var loginBtn = document.getElementById('loginBtn');
 
@@ -342,13 +392,15 @@ a:hover {
 		var contentInput = document.getElementById('textareaBox');
 		var contentText = document.getElementsByClassName('itemDetailEmptyBox')[2];
 		var contentInputValue = contentInput.value;
+		
+		var timeInput = document.getElementById('currentTime');
 
 		if (authorInputValue != '' && titleInputValue != ''
 				&& contentInputValue != '') {
 			var confirmText = confirm('새 게시글을 등록하시겠습니까?');
 			if (confirmText == true) {
 				alert('게시글이 등록되었습니다.');
-				location.href = './noticeboard.jsp?userID=' + authorInput.value + '&title=' + titleInput.value;
+				location.href = './noticeboard.jsp?userID=' + authorInput.value + '&title=' + titleInput.value + '&currentTime='+timeInput.value;
 			} else {
 				alert('게시글 등록이 취소되었습니다.');
 			}
@@ -464,6 +516,7 @@ a:hover {
 	
 	
 				</div>
+				<input id="currentTime" type="hidden" name="currentTime" value="20-04-29 11:00">
 				<div id="bottomContainer1">
 					<input id="inputButton" type="button" value="등록하기">
 				</div>
