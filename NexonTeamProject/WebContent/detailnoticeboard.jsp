@@ -431,7 +431,6 @@ a:hover {
 				<img class="logoImg2" src="images/logo_nexon.png" alt="로고">
 			</div>
 			<form action="noticeboard.jsp">
-			</form>
 			<div class="middleContainer2">
 				<div id="emptyAlarm">
 					<span class="itemSpanBox">작성자</span> <input class="itemDetailBox1"
@@ -467,6 +466,7 @@ a:hover {
 				
 					<input id="inputButton" type="submit" value="등록하기">
 			</div>
+			</form>
 			
 			<div id="bottomContainer2">
 				<a href="noticeboard.jsp">

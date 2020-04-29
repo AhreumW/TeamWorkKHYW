@@ -184,7 +184,7 @@ td {
 	border: 0.5px solid black;
 	margin-bottom: 70px;
 }
-	a:link {
+a:link {
 	color: red;
 	text-decoration: none;
 }
@@ -198,6 +198,7 @@ a:hover {
 	color: blue;
 	text-decoration: underline;
 }
+	
 </style>
 <script type="text/javascript">
 	window.onload = function() {
@@ -206,11 +207,15 @@ a:hover {
 		var td1Obj = document.getElementsByClassName('td1');
 		var td2Obj = document.getElementsByClassName('td2');
 		var td3Obj = document.getElementsByClassName('td3');
+		var td4Obj = document.getElementsByClassName('td4');
+		var a1Obj = document.getElementById('a1');
 		var a2Obj = document.getElementById('a2');
 		var a3Obj = document.getElementById('a3');
 		var a4Obj = document.getElementById('a4');
 		var a5Obj = document.getElementById('a5');
 		var a6Obj = document.getElementsByClassName('a6');
+		
+		a1Obj.style.color = 'blue';
 		
 		/* 사이드메뉴  */
 		var sideBox = document.getElementById('sideMenu');
@@ -224,18 +229,26 @@ a:hover {
 		//작성자, 제목 받기
 		var urText = location.href;
 		//번호
+		cnt = 50;
 		for (var i = 1; i < td1Obj.length; i++) {
-			td1Obj[i].innerHTML = i;
+			td1Obj[i].innerHTML = cnt;
+			cnt--;
 		}
-		
+		//1번 버튼 눌렀을때 이벤트
+// 		a1Obj.addEventListener('click', 'pageEve0Fnc', false);
+		a1Obj.setAttribute('onclick', 'colorpageFnc(this);pageEve0Fnc();');
 		//2번 버튼 눌렀을때 이벤트
-		a2Obj.setAttribute('onclick', 'pageEve1Fnc();');
+		
+		a2Obj.setAttribute('onclick', 'colorpageFnc(this);pageEve1Fnc();');
 		//3번 버튼 눌렀을때 이벤트
-		a3Obj.setAttribute('onclick', 'pageEve2Fnc();');
+	
+		a3Obj.setAttribute('onclick', 'colorpageFnc(this);pageEve2Fnc();');
 		//4번 버튼 눌렀을때 이벤트
-		a4Obj.setAttribute('onclick', 'pageEve3Fnc();');
+		
+		a4Obj.setAttribute('onclick', 'colorpageFnc(this);pageEve3Fnc();');
 		//5번 버튼 눌렀을때 이벤트
-		a5Obj.setAttribute('onclick', 'pageEve4Fnc();');
+		
+		a5Obj.setAttribute('onclick', 'colorpageFnc(this);pageEve4Fnc();');
 		//왼쪽 화살표 버튼 눌렀을 경우
 		a6Obj[0].setAttribute('onclick', 'eve2Fnc();');
 		//오른쪽 화살표 버튼 눌렀을경우
@@ -265,6 +278,31 @@ a:hover {
 			td3Obj[1].innerHTML = nameId;
 			td2Obj[1].innerHTML = titleName;
 		}
+		
+		//1번째 페이지 시간
+		var dt = 23;
+		var mi = 60;
+		
+		td4ObjList[1].innerHTML = '20-04-29 ' + dt + ':00';
+		
+		for (var i = 2; i < td4ObjList.length; i++) {
+			mi = mi-5;
+			
+			td4ObjList[i].innerHTML = '20-04-29 ' + dt + ':' + mi;
+			dt = dt-2;
+			
+			if(dt < 10) {
+				td4ObjList[i].innerHTML = '20-04-29 0' + dt + ':' + mi;
+			}
+			
+			if(mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-29 ' + dt + ':0' + mi;
+			}
+			
+			if(dt < 10 && mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-29 0' + dt + ':0' + mi;
+			}
+		}
 	}
 		
 		 
@@ -287,83 +325,279 @@ a:hover {
 		var td5ObjList = document.getElementsByClassName('td5');
 		td5ObjList[i].innerHTML = countNum;
 	}
+	
+	var cnt = 0;
+	
 	function pageEve0Fnc() {
 		var td2ObjList = document.getElementsByClassName('td2');
 		var td1Obj = document.getElementsByClassName('td1');
 		var td5ObjList = document.getElementsByClassName('td5');
-
+		var td4ObjList = document.getElementsByClassName('td4');
+		var a1Obj = document.getElementById('a1');
+		var a2Obj = document.getElementById('a2');
+		var a3Obj = document.getElementById('a3');
+		var a4Obj = document.getElementById('a4');
+		var a5Obj = document.getElementById('a5');
+		
+		cnt = 50;
 		for (var i = 1; i < td1Obj.length; i++) {
 			countList[i] = 0;
 			td5ObjList[i].innerHTML = countList[i];
-			td1Obj[i].innerHTML = i;
+			td1Obj[i].innerHTML = cnt;
+			cnt--;
 		}
 
 		for (var i = 1; i < td2ObjList.length; i++) {
-			td2ObjList[i].innerHTML = ('<span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span>');
+			td2ObjList[i].innerHTML = ('<a href="#"><span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span></a>');
 		}
+		
+		var dt = 23;
+		var mi = 60;
+		
+		td4ObjList[1].innerHTML = '20-04-29 ' + dt + ':00';
+		
+		for (var i = 2; i < td4ObjList.length; i++) {
+			mi = mi-5;
+			
+			td4ObjList[i].innerHTML = '20-04-29 ' + dt + ':' + mi;
+			dt = dt-2;
+			
+			if(dt < 10) {
+				td4ObjList[i].innerHTML = '20-04-29 0' + dt + ':' + mi;
+			}
+			
+			if(mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-29 ' + dt + ':0' + mi;
+			}
+			
+			if(dt < 10 && mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-29 0' + dt + ':0' + mi;
+			}
+		}
+	
+		
+	
+		a1Obj.style.color = 'blue';
+		a2Obj.style.color = 'black';
+		a3Obj.style.color = 'black';
+		a4Obj.style.color = 'black';
+		a5Obj.style.color = 'black';
+		
 	}
 	function pageEve1Fnc() {
 		var td2ObjList = document.getElementsByClassName('td2');
 		var td1Obj = document.getElementsByClassName('td1');
 		var td5ObjList = document.getElementsByClassName('td5');
-
+		var td4ObjList = document.getElementsByClassName('td4');
+		var a1Obj = document.getElementById('a1');
+		var a2Obj = document.getElementById('a2');
+		var a3Obj = document.getElementById('a3');
+		var a4Obj = document.getElementById('a4');
+		var a5Obj = document.getElementById('a5');
+		
+		cnt = 40;
 		for (var i = 1; i < td1Obj.length; i++) {
 			countList[i] = 0;
 			td5ObjList[i].innerHTML = countList[i];
-			td1Obj[i].innerHTML = i + 10;
+			td1Obj[i].innerHTML = cnt;
+			cnt--;
 		}
 
 		for (var i = 1; i < td2ObjList.length; i++) {
-			td2ObjList[i].innerHTML = ('<span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span>');
+			td2ObjList[i].innerHTML = ('<a href="#"><span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span></a>');
 		}
+		
+		var dt = 23;
+		var mi = 60;
+		
+		td4ObjList[1].innerHTML = '20-04-28 ' + dt + ':00';
+		
+		for (var i = 2; i < td4ObjList.length; i++) {
+			mi = mi-5;
+			
+			td4ObjList[i].innerHTML = '20-04-28 ' + dt + ':' + mi;
+			dt = dt-2;
+			
+			if(dt < 10) {
+				td4ObjList[i].innerHTML = '20-04-28 0' + dt + ':' + mi;
+			}
+			
+			if(mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-28 ' + dt + ':0' + mi;
+			}
+			
+			if(dt < 10 && mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-28 0' + dt + ':0' + mi;
+			}
+		}
+		
+		a1Obj.style.color = 'black';
+		a2Obj.style.color = 'blue';
+		a3Obj.style.color = 'black';
+		a4Obj.style.color = 'black';
+		a5Obj.style.color = 'black';
 
 	}
 	function pageEve2Fnc() {
 		var td2ObjList = document.getElementsByClassName('td2');
 		var td1Obj = document.getElementsByClassName('td1');
 		var td5ObjList = document.getElementsByClassName('td5');
+		var td4ObjList = document.getElementsByClassName('td4');
+		var a1Obj = document.getElementById('a1');
+		var a2Obj = document.getElementById('a2');
+		var a3Obj = document.getElementById('a3');
+		var a4Obj = document.getElementById('a4');
+		var a5Obj = document.getElementById('a5');
 
+		cnt = 30;
 		for (var i = 1; i < td1Obj.length; i++) {
 			countList[i] = 0;
 			td5ObjList[i].innerHTML = countList[i];
-			td1Obj[i].innerHTML = i + 20;
+			td1Obj[i].innerHTML = cnt;
+			cnt--;
 		}
 
 		for (var i = 1; i < td2ObjList.length; i++) {
-			td2ObjList[i].innerHTML = ('<span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span>');
+			td2ObjList[i].innerHTML = ('<a href="#"><span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span></a>');;
 		}
+		var dt = 23;
+		var mi = 60;
+		
+		td4ObjList[1].innerHTML = '20-04-27 ' + dt + ':00';
+		
+		for (var i = 2; i < td4ObjList.length; i++) {
+			mi = mi-3;
+			
+			td4ObjList[i].innerHTML = '20-04-27 ' + dt + ':' + mi;
+			dt = dt-2;
+			
+			if(dt < 10) {
+				td4ObjList[i].innerHTML = '20-04-27 0' + dt + ':' + mi;
+			}
+			
+			if(mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-27 ' + dt + ':0' + mi;
+			}
+			
+			if(dt < 10 && mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-27 0' + dt + ':0' + mi;
+			}
+		}
+		a1Obj.style.color = 'black';
+		a2Obj.style.color = 'black';
+		a3Obj.style.color = 'blue';
+		a4Obj.style.color = 'black';
+		a5Obj.style.color = 'black';
 
 	}
 	function pageEve3Fnc() {
 		var td2ObjList = document.getElementsByClassName('td2');
 		var td1Obj = document.getElementsByClassName('td1');
 		var td5ObjList = document.getElementsByClassName('td5');
+		var td4ObjList = document.getElementsByClassName('td4');
+		var a1Obj = document.getElementById('a1');
+		var a2Obj = document.getElementById('a2');
+		var a3Obj = document.getElementById('a3');
+		var a4Obj = document.getElementById('a4');
+		var a5Obj = document.getElementById('a5');
+		
+		cnt = 20;
 
 		for (var i = 1; i < td1Obj.length; i++) {
 			countList[i] = 0;
 			td5ObjList[i].innerHTML = countList[i];
-			td1Obj[i].innerHTML = i + 30;
+			td1Obj[i].innerHTML = cnt;
+			cnt--;
 		}
 
 		for (var i = 1; i < td2ObjList.length; i++) {
-			td2ObjList[i].innerHTML = ('<span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span>');
+			td2ObjList[i].innerHTML = ('<a href="#"><span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span></a>');;
 		}
-
+		var dt = 23;
+		var mi = 60;
+		
+		td4ObjList[1].innerHTML = '20-04-26 ' + dt + ':00';
+		
+		for (var i = 2; i < td4ObjList.length; i++) {
+			mi = mi-6;
+			
+			td4ObjList[i].innerHTML = '20-04-26 ' + dt + ':' + mi;
+			dt = dt-2;
+			
+			if(dt < 10) {
+				td4ObjList[i].innerHTML = '20-04-26 0' + dt + ':' + mi;
+			}
+			
+			if(mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-26 ' + dt + ':0' + mi;
+			}
+			
+			if(dt < 10 && mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-26 0' + dt + ':0' + mi;
+			}
+		}
+		
+		
+		
+		a1Obj.style.color = 'black';
+		a2Obj.style.color = 'black';
+		a3Obj.style.color = 'black';
+		a4Obj.style.color = 'blue';
+		a5Obj.style.color = 'black';
 	}
 	function pageEve4Fnc() {
+		
 		var td2ObjList = document.getElementsByClassName('td2');
 		var td1Obj = document.getElementsByClassName('td1');
 		var td5ObjList = document.getElementsByClassName('td5');
+		var td4ObjList = document.getElementsByClassName('td4');
+		var a1Obj = document.getElementById('a1');
+		var a2Obj = document.getElementById('a2');
+		var a3Obj = document.getElementById('a3');
+		var a4Obj = document.getElementById('a4');
+		var a5Obj = document.getElementById('a5');
+		
+		cnt = 10;
 
 		for (var i = 1; i < td1Obj.length; i++) {
 			countList[i] = 0;
 			td5ObjList[i].innerHTML = countList[i];
-			td1Obj[i].innerHTML = i + 40;
+			td1Obj[i].innerHTML = cnt;
+			cnt--;
 		}
 
 		for (var i = 1; i < td2ObjList.length; i++) {
-			td2ObjList[i].innerHTML = ('<span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span>');
+			td2ObjList[i].innerHTML = ('<a href="#"><span">' + td1Obj[i].innerHTML + '번째 게시판 입니다.' + '</span></a>');;
 		}
+		
+		var dt = 23;
+		var mi = 60;
+		
+		td4ObjList[1].innerHTML = '20-04-25 ' + dt + ':00';
+		
+		for (var i = 2; i < td4ObjList.length; i++) {
+			mi = mi-6;
+			
+			td4ObjList[i].innerHTML = '20-04-25 ' + dt + ':' + mi;
+			dt--;
+			
+			if(dt < 10) {
+				td4ObjList[i].innerHTML = '20-04-25 0' + dt + ':' + mi;
+			}
+			
+			if(mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-25 ' + dt + ':0' + mi;
+			}
+			
+			if(dt < 10 && mi < 10) {
+				td4ObjList[i].innerHTML = '20-04-25 0' + dt + ':0' + mi;
+			}
+		}
+		a1Obj.style.color = 'black';
+		a2Obj.style.color = 'black';
+		a3Obj.style.color = 'black';
+		a4Obj.style.color = 'black';
+		a5Obj.style.color = 'blue';
 
 	}
 	
@@ -373,25 +607,31 @@ a:hover {
 
 			/* if (0 < td1Obj[i] <= 10) {
 				a6Obj[i]
-			} else */ if (Number(td1Obj.innerHTML) == 10) {
+			} else */ if (Number(td1Obj.innerHTML) == 41) {
 				pageEve1Fnc();
-			} else if (Number(td1Obj.innerHTML) == 20) {
+			} else if (Number(td1Obj.innerHTML) == 31) {
 				pageEve2Fnc();
-			} else if (Number(td1Obj.innerHTML) == 30) {
+			} else if (Number(td1Obj.innerHTML) == 21) {
 				pageEve3Fnc();
-			} else if (Number(td1Obj.innerHTML) == 40) {
+			} else if (Number(td1Obj.innerHTML) == 11) {
 				pageEve4Fnc();
 			}
 	}
 	function eve2Fnc() {
 		var td1Obj = document.getElementsByClassName('td1')[10];
-			if(Number(td1Obj.innerHTML) == 20) {
+		var a1Obj = document.getElementById('a1');
+		var a2Obj = document.getElementById('a2');
+		var a3Obj = document.getElementById('a3');
+		var a4Obj = document.getElementById('a4');
+		var a5Obj = document.getElementById('a5');
+		
+			if(Number(td1Obj.innerHTML) == 31) {
 				pageEve0Fnc();
-			} else if (Number(td1Obj.innerHTML) == 30) {
+			} else if (Number(td1Obj.innerHTML) == 21) {
 				pageEve1Fnc();
-			} else if (Number(td1Obj.innerHTML) == 40) {
+			} else if (Number(td1Obj.innerHTML) == 11) {
 				pageEve2Fnc();
-			} else if (Number(td1Obj.innerHTML) == 50) {
+			} else if (Number(td1Obj.innerHTML) == 1) {
 				pageEve3Fnc();
 			}
 	}
@@ -421,6 +661,25 @@ a:hover {
 	function closeMenu() {
 		document.getElementById("mySidebar").style.width = "0";
 	}
+	
+	//현재 페이지 색깔 바뀌는거
+	function colorpageFnc(aObj) {
+		var aChild = [];
+		
+		for (var i = 1; i < 6; i++) {
+			aChild[i] = document.getElementById('a'+i);
+			aChild[i].style.color = 'black';
+		}
+		
+		
+		aObj.style.color= 'blue';
+	}
+	
+	//원래색깔
+	function colorbackFnc(aObj) {
+		aObj.style.color = '';
+	}
+	
 	
 </script>
 </head>
@@ -483,70 +742,70 @@ a:hover {
 					</tr>
 					<tr class='tr2'>
 						<td class='td1'></td>
-						<td class='td2'><span>1번째 게시물입니다</span></td>
+						<td class='td2'><a href="#"><span>50번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
 						<td class='td5'><div class='into1'></div></td>
 					</tr>
 					<tr class='tr2'>
 						<td class='td1'></td>
-						<td class='td2'><span>2번째 게시물입니다</span></td>
+						<td class='td2'><a href="#"><span>49번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
 						<td class='td5'><div class='into1'></div></td>
 					</tr>
 					<tr class='tr2'>
 						<td class='td1'></td>
-						<td class='td2'><span>3번째 게시물입니다</span></td>
+						<td class='td2'><a href="#"><span>48번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
 						<td class='td5'><div class='into1'></div></td>
 					</tr>
 					<tr class='tr2'>
 						<td class='td1'></td>
-						<td class='td2'><span>4번째 게시물입니다</span></td>
+						<td class='td2'><a href="#"><span>47번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
 						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr class='tr2'>
 						<td class='td1'></td>
-						<td class='td2'><span>5번째 게시물입니다</span></td>
+						<td class='td2'><a href="#"><span>46번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
 						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr class='tr2'>
 						<td class='td1'></td>
-						<td class='td2'><span>6번째 게시물입니다</span></td>
+						<td class='td2'><a href="#"><span>45번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
 						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr class='tr2'>
 						<td class='td1'></td>
-						<td class='td2'><span>7번째 게시물입니다</span></td>
+						<td class='td2'><a href="#"><span>44번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
 						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr class='tr2'>
 						<td class='td1'></td>
-						<td class='td2'><span>8번째 게시물입니다</span></td>
+						<td class='td2'><a href="#"><span>43번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
 						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr class='tr2'>
 						<td class='td1'></td>
-						<td class='td2'><span>9번째 게시물입니다</span></td>
+						<td class='td2'><a href="#"><span>42번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
 						<td class='td5'><div class='into1'>0</div></td>
 					</tr>
 					<tr id='tr3'>
 						<td class='td1'></td>
-						<td class='td2'><span>10번째 게시물입니다</span></td>
+						<td class='td2'><a href="#"><span>41번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
 						<td class='td4'>20-04-27 11:07</td>
 						<td class='td5'><div class='into1'>0</div></td>
@@ -555,9 +814,13 @@ a:hover {
 				</table>
 			</div>
 			<div id='num'>
-				<span class='a6'>&#9664;</span> <span>[1]</span> <span id='a2'>[2]</span>
-				<span id='a3'>[3]</span> <span id='a4'>[4]</span> <span id='a5'>[5]</span>
-				<span class='a6'>&#9654;</span>
+				<a href="#"><span class='a6'>&#9664;</span></a> 
+				<a href="#"><span id='a1'>[1]</span></a> 
+				<a href="#"><span id='a2'>[2]</span></a>
+				<a href="#"><span id='a3'>[3]</span></a>
+				<a href="#"><span id='a4'>[4]</span></a> 
+				<a href="#"><span id='a5'>[5]</span></a>
+				<a href="#"><span class='a6'>&#9654;</span></a>
 			</div>
 			<div id='bg'>
 				<form action="detailnoticeboard.jsp">
