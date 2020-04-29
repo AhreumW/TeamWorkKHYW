@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판 상세</title>
-<link rel="shortcut icon" href="./images/nexon_favicon.ico">
 <style type="text/css">
 .frameContainer {
 	width: 1920px;
@@ -178,7 +177,7 @@ textarea {
 	font: 16px Gothic;
 }
 /* 사이드 메뉴 */
-	.sidebar {
+.sidebar {
 	  height: 100%;
 	  width: 0;
 	  position: fixed;
@@ -190,60 +189,60 @@ textarea {
 	  transition: 0.5s;
 	  padding-top: 60px;
 	}
-	.sidebar a {
+.sidebar a {
 	  text-decoration: none;
 	  font-size: 20px;
 	  color: #818181;
 	  display: block;
 	  transition: 0.3s;
 	}
-	.sideList{
+.sideList{
 		padding: 15px 20px;
 	}
-	.sidebar a:hover {
+.sidebar a:hover {
 	  color: #f1f1f1;
 	}
-	.sidebar .closebtn {
+.sidebar .closebtn {
 	  position: absolute;
 	  top: 5px;
 	  left: 23px;
 	  font-size: 36px;
 	  color: #17191D;
 	}
-	#mySidebar{
+#mySidebar{
 		border-right: 1px solid #dde1e5;
 	}
-	#sideHeaderBox{
+#sideHeaderBox{
 		height: 0px;
 		border-bottom: 1px solid #dde1e5;
 	}
-	#sideListBox{
+#sideListBox{
 		height: 700px;
 /*  		background-color: #fafafa;  */
 	}
-	#otherBox{
+#otherBox{
 	    height: 195px;	
 	    background-color: #17191D;
 	}
-	#headerLine {
+#headerLine {
 	width: 100%;
 	border: 0.5px solid black;
 	margin-bottom: 70px;
-}
-	a:link {
+	}
+a:link {
 	color: red;
 	text-decoration: none;
-}
+	}
 
 a:visited {
 	color: black;
-	text-decoration: none;
-}
+	text-decoration: none;	
+	}
 
 a:hover {
 	color: blue;
 	text-decoration: underline;
-}
+	}
 </style>
 <script type="text/javascript">
 	/*헤더 스크립트  */
@@ -271,57 +270,7 @@ a:hover {
 
 		loginBox.setAttribute('onmouseenter', 'changeBtnBlue();');
 		loginBox.setAttribute('onmouseleave', 'changeBtnWhite();');
-		
-		//현재 시간
-		var currentTimeObj = document.getElementById('currentTime');
-		var time = updateTimeFnc();
-		currentTimeObj.value= time;
 
-	}
-	
-	//현재시간 
-	function updateTimeFnc(){
-		var localTime = new Date();
-		
-		var year = localTime.getYear().toString();
-		var yearTxt = year.slice(1, 3);
-		
-		var month = localTime.getMonth() + 1;
-		if(month.toString().length == 1){
-			var monthTxt = ''+ 0 + month;
-		}else{
-			var monthTxt = ''+ month;
-		}
-		
-		
-		var date = localTime.getDate();
-		if(date.toString().length == 1){
-			var dateTxt = ''+ 0 + date;
-		}else{
-			var dateTxt = ''+ date;
-		}
-		
-		var hour = localTime.getHours();
-		if(hour.toString().length == 1){
-			var hourTxt = ''+ 0 + hour;
-		}else{
-			var hourTxt = ''+ hour;
-		}
-		
-		var minute = localTime.getMinutes();
-		if(minute.toString().length == 1){
-			var minuteTxt = ''+ 0 + minute;
-		}else{
-			var minuteTxt = ''+ minute;
-		}
-		
-		var timeTxt = yearTxt +'-';
-		timeTxt += monthTxt + '-';
-		timeTxt += dateTxt + ' ';
-		timeTxt += hourTxt + ':';
-		timeTxt += minuteTxt;
-		
-		return timeTxt;
 	}
 
 	function changeBtnBlue() {
@@ -333,6 +282,7 @@ a:hover {
 		loginBtn.children[0].style.color = "#fff";
 	}
 
+	
 	function changeBtnWhite() {
 		var loginBtn = document.getElementById('loginBtn');
 
@@ -398,12 +348,13 @@ a:hover {
 			var confirmText = confirm('새 게시글을 등록하시겠습니까?');
 			if (confirmText == true) {
 				alert('게시글이 등록되었습니다.');
+				location.href = './noticeboard.jsp?userID=' + authorInput.value + '&title=' + titleInput.value;
 			} else {
 				alert('게시글 등록이 취소되었습니다.');
 			}
 		} else if (authorInputValue == '' && titleInputValue == ''
 				&& contentInputValue == '') {
-			alert('게시물 내용이 없습니다. \n게시물 목록으로 넘어갑니다.');
+			alert('게시물 내용이 없습니다.');
 		}
 	}
 	
@@ -453,9 +404,7 @@ a:hover {
 				<span class="menuFont" style="width: 30px;">메뉴</span>
 			</a>
 		</div>
-		<a href="login.jsp">
 		<img id="logoBox" alt="logo" src="./images/logo_nexon.png">
-		</a>
 		<div id="rightHBox">
 			<div id="PCBox">
 				<span class="menuFont">PC방</span>
@@ -469,7 +418,7 @@ a:hover {
 			
 			<div id="loginBox">
 				<a id="loginBtn" href='login.jsp'>			
-					<span style="font:13px Gothic; color:#080410; font-weight: bold;">로그아웃</span>
+					<span style="font:16px Gothic; color:#080410; font-weight: bold;">로그인</span>
 				</a>
 			</div>		
 		</div>
@@ -484,42 +433,40 @@ a:hover {
 				<img class="logoImg2" src="images/logo_nexon.png" alt="로고">
 			</div>
 			<form action="noticeboard.jsp">
-			<div class="middleContainer2">
-				<div id="emptyAlarm">
-					<span class="itemSpanBox">작성자</span> <input class="itemDetailBox1"
-						type="text" placeholder=" 작성자명을 입력하세요." name="userID">
+				<div class="middleContainer2">
+					<div id="emptyAlarm">
+						<span class="itemSpanBox">작성자</span> 
+						<input class="itemDetailBox1" type="text" placeholder=" 작성자명을 입력하세요." name="userID">
+					</div>
+	
+					<div class="itemDetailEmptyBox">
+						<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
+					</div>
+	
+					<div>
+						<span class="itemSpanBox">제 목</span> 
+						<input class="itemDetailBox2" type="text" placeholder=" 제목을 입력하세요." name="title">
+					</div>
+	
+					<div class="itemDetailEmptyBox">
+						<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
+					</div>
+	
+					<div>
+						<span class="itemSpanBox_textArea">내 용</span>
+						<textarea rows="15" cols="82" placeholder=" 내용을 입력하세요."
+							id="textareaBox"></textarea>
+					</div>
+	
+					<div class="itemDetailEmptyBox">
+						<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
+					</div>
+	
+	
 				</div>
-
-				<div class="itemDetailEmptyBox">
-					<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
+				<div id="bottomContainer1">
+					<input id="inputButton" type="button" value="등록하기">
 				</div>
-
-				<div>
-					<span class="itemSpanBox">제 목</span> <input class="itemDetailBox2"
-						type="text" placeholder=" 제목을 입력하세요." name="title">
-				</div>
-
-				<div class="itemDetailEmptyBox">
-					<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
-				</div>
-
-				<div>
-					<span class="itemSpanBox_textArea">내 용</span>
-					<textarea rows="15" cols="82" placeholder=" 내용을 입력하세요."
-						id="textareaBox"></textarea>
-				</div>
-
-				<div class="itemDetailEmptyBox">
-					<!-- 공란으로 등록을 클릭했을때 경고메시지 출력되는 공간 -->
-				</div>
-
-
-			</div>
-			
-			<div id="bottomContainer1">
-				
-					<input id="inputButton" type="submit" value="등록하기">
-			</div>
 			</form>
 			
 			<div id="bottomContainer2">
