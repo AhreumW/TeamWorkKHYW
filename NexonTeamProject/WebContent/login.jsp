@@ -277,18 +277,20 @@ a:hover {
 				<span class="choLoginBoxText"  style="color:#7A7A7A;">QR 로그인</span>
 			</div>
 		</div>
-		<div id="inputBox">
-			<input type="checkbox"><span style="font:12px Dotum;">넥슨ID 저장</span>
-			<div id="inputIdBox">		
-				<input id="userId" type="text" placeholder="넥슨ID(아이디 또는 이메일)를 입력해주세요.">
+		<form>
+			<div id="inputBox">
+				<input type="checkbox"><span style="font:12px Dotum;">넥슨ID 저장</span>
+				<div id="inputIdBox">		
+					<input id="userId" type="text" placeholder="넥슨ID(아이디 또는 이메일)를 입력해주세요.">
+				</div>
+				<div id="inputPwdBox">
+					<input id="userPwd" type="password" placeholder="비밀번호를 입력해주세요.">
+				</div>
 			</div>
-			<div id="inputPwdBox">
-				<input id="userPwd" type="password" placeholder="비밀번호를 입력해주세요.">
-			</div>
-		</div>
-		<button id="inputLoginBtn">
-			<span style="font: 18px Dotum; color: #FFFFFF;">넥슨ID 로그인</span>
-		</button>
+			<button id="inputLoginBtn">
+				<span style="font: 18px Dotum; color: #FFFFFF;">넥슨ID 로그인</span>
+			</button>
+		</form>
 		<div id="bottomMenu">
 			<a href="IdSearch.jsp"><span class="bottomMenuFont bottomMenuForm">넥슨ID 찾기</span></a>
 			<a href="#"><span class="bottomMenuFont bottomMenuForm">비밀번호 찾기</span></a>
