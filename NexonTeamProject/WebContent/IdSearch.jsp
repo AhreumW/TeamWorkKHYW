@@ -354,7 +354,9 @@ a:hover {
 				style="width: 30px;">메뉴</span>
 			</a>
 		</div>
+		<a href="login.jsp">
 		<img id="logoBox" alt="logo" src="./images/logo_nexon.png">
+		</a>
 		<div id="rightHBox">
 			<div id="PCBox">
 				<span class="menuFont">PC방</span> <span
@@ -386,6 +388,7 @@ a:hover {
 		<div id='htag'>
 			<h4>고객님의 정보와 일치하는 넥슨ID 입니다.</h4>
 		</div>
+		<form action="login.jsp">
 		<div>
 			<table id='table'>
 				<tr id='tr1'>
@@ -395,19 +398,22 @@ a:hover {
 					<th class='td4'>게임정보</th>
 				</tr>
 				<tr id='tr2'>
-					<td class='td1'><input type="radio" name="id" checked>xxx0427@naver.com</td>
+					<td class='td1'>
+					<input type="radio" name="id" value="xxx0427@naver.com">xxx0427@naver.com</td>
 					<td class='td2'>2015.07.18</td>
 					<td class='td3'>정상</td>
 					<td class='td4'><a href="">보기</a></td>
 				</tr>
 				<tr id='tr3'>
-					<td class='td1'><input type="radio" name="id" checked>xxx0427</td>
+					<td class='td1'>
+					<input type="radio" name="id" value="xxx0427">xxx0427</td>
 					<td class='td2'>2011.09.08</td>
 					<td class='td3' id='red'>비정상</td>
 					<td class='td4'><a href="">보기</a></td>
 				</tr>
 				<tr id='tr4'>
-					<td class='td1'><input type="radio" name="id" checked>xxy0455@daum.net</td>
+					<td class='td1'>
+					<input type="radio" name="id" value="xxy0455@daum.net">xxy0455@daum.net</td>
 					<td class='td2'>2011.01.07</td>
 					<td class='td3'>정상</td>
 					<td class='td4'><a href="">보기</a></td>
@@ -415,13 +421,10 @@ a:hover {
 			</table>
 		</div>
 		<div id='Btn'>
-			<form action="">
 				<input id='lgnBtn' type="submit" value="로그인">
-			</form>
-			<form action="">
-				<input id='passwordBtn' type="submit" value="비밀번호 재설정">
-			</form>
+				<input id='passwordBtn' type="button" value="비밀번호 재설정">
 		</div>
+		</form>
 	</div>
 </body>
 </html>

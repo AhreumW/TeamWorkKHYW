@@ -234,12 +234,14 @@ a:hover {
 			var titleName = titleTxt[1];
 			//시간 형식 바꾸기 
 			var timeName = timeTxt[1].replace('+', ' ');
+			td4Obj[1].innerHTML = timeName;
 
 			td3Obj[1].innerHTML = nameId;
 			td2Obj[1].innerHTML = titleName;
-			td4Obj[1].innerHTML = timeName;
 		}
 	}
+	
+	
 		
 		 
 

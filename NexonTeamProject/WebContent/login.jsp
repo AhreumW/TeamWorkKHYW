@@ -4,7 +4,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="shortcut icon" href="./images/nexon_favicon.ico">
 	<title>로그인</title>
 <style type="text/css">
 	/* header */
@@ -12,7 +11,7 @@
 		width: 1900px; height: 62px;
 	}
 	#menuBox{
-		float:left; width: 107px; height: 64px; padding: 15px 23px 24px;
+		float:left; width: 107px; height:64px; padding: 15px 23px 24px;
 	}
 	#menuIcon{
 		width:18px; height:16px; margin: 1px 5px 0px 0px;
@@ -239,7 +238,9 @@ a:hover {
 				<span class="menuFont" style="width: 30px;">메뉴</span>
 			</a>
 		</div>
+		<a href="login.jsp">
 		<img id="logoBox" alt="logo" src="./images/logo_nexon.png">
+		</a>
 		<div id="rightHBox">
 			<div id="PCBox">
 				<span class="menuFont">PC방</span>
@@ -288,9 +289,9 @@ a:hover {
 			<span style="font: 18px Dotum; color: #FFFFFF;">넥슨ID 로그인</span>
 		</button>
 		<div id="bottomMenu">
-			<span class="bottomMenuFont bottomMenuForm">넥슨ID 찾기</span>
-			<span class="bottomMenuFont bottomMenuForm">비밀번호 찾기</span>
-			<span class="bottomMenuFont">넥슨 회원가입</span>
+			<a href="IdSearch.jsp"><span class="bottomMenuFont bottomMenuForm">넥슨ID 찾기</span></a>
+			<a href="#"><span class="bottomMenuFont bottomMenuForm">비밀번호 찾기</span></a>
+			<a href="membership.jsp"><span class="bottomMenuFont">넥슨 회원가입</span></a>
 			<span class="bottomMenuFont" style="padding-left: 143px;">보안센터</span>
 		</div>
 

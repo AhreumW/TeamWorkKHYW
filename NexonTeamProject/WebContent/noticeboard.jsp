@@ -256,7 +256,7 @@ a:hover {
 		var td1Obj = document.getElementsByClassName('td1');
 		var td2Obj = document.getElementsByClassName('td2');
 		var td3Obj = document.getElementsByClassName('td3');
-		var td4Obj = document.getElementsByClassName('td4');
+		var td4ObjList = document.getElementsByClassName('td4');
 		var a1Obj = document.getElementById('a1');
 		var a2Obj = document.getElementById('a2');
 		var a3Obj = document.getElementById('a3');
@@ -319,19 +319,23 @@ a:hover {
 		var idTxt = urlSplitTxtList[1].split('&');
 		var id2Txt = idTxt[0].split('=');
 		var titleTxt = idTxt[1].split('=');
+		var timeTxt = idTxt[2].split('=');	
 			
 			
 			var nameId = id2Txt[1];
 			var titleName = titleTxt[1];
+			//시간 형식 바꾸기 
+			var timeName = timeTxt[1].replace('+', ' ');
 
 			td3Obj[1].innerHTML = nameId;
 			td2Obj[1].innerHTML = titleName;
-		}
+			td4ObjList[1].innerHTML = timeName;
 		//1번째 페이지 시간
+	}
 		var dt = 23;
 		var mi = 60;
 		
-		td4ObjList[1].innerHTML = '20-04-29 ' + dt + ':00';
+		
 		
 		for (var i = 2; i < td4ObjList.length; i++) {
 			mi = mi-5;
@@ -403,24 +407,24 @@ a:hover {
 		var dt = 23;
 		var mi = 60;
 		
-		td4ObjList[1].innerHTML = '20-04-29 ' + dt + ':00';
+		td4ObjList[1].innerHTML = '20-04-28 ' + dt + ':00';
 		
 		for (var i = 2; i < td4ObjList.length; i++) {
 			mi = mi-5;
-			
-			td4ObjList[i].innerHTML = '20-04-29 ' + dt + ':' + mi;
 			dt = dt-2;
 			
+			td4ObjList[i].innerHTML = '20-04-28 ' + dt + ':' + mi;
+			
 			if(dt < 10) {
-				td4ObjList[i].innerHTML = '20-04-29 0' + dt + ':' + mi;
+				td4ObjList[i].innerHTML = '20-04-28 0' + dt + ':' + mi;
 			}
 			
 			if(mi < 10) {
-				td4ObjList[i].innerHTML = '20-04-29 ' + dt + ':0' + mi;
+				td4ObjList[i].innerHTML = '20-04-28 ' + dt + ':0' + mi;
 			}
 			
 			if(dt < 10 && mi < 10) {
-				td4ObjList[i].innerHTML = '20-04-29 0' + dt + ':0' + mi;
+				td4ObjList[i].innerHTML = '20-04-28 0' + dt + ':0' + mi;
 			}
 		}
 		
@@ -442,6 +446,7 @@ a:hover {
 		var td1Obj = document.getElementsByClassName('td1');
 		var td5ObjList = document.getElementsByClassName('td5');
 		var td4ObjList = document.getElementsByClassName('td4');
+		var td3ObjList = document.getElementsByClassName('td3');
 		var a1Obj = document.getElementById('a1');
 		var a2Obj = document.getElementById('a2');
 		var a3Obj = document.getElementById('a3');
@@ -463,24 +468,24 @@ a:hover {
 		var dt = 23;
 		var mi = 60;
 		
-		td4ObjList[1].innerHTML = '20-04-28 ' + dt + ':00';
+		td4ObjList[1].innerHTML = '20-04-27 ' + dt + ':00';
 		
 		for (var i = 2; i < td4ObjList.length; i++) {
 			mi = mi-5;
-			
-			td4ObjList[i].innerHTML = '20-04-28 ' + dt + ':' + mi;
 			dt = dt-2;
 			
+			td4ObjList[i].innerHTML = '20-04-27 ' + dt + ':' + mi;
+			
 			if(dt < 10) {
-				td4ObjList[i].innerHTML = '20-04-28 0' + dt + ':' + mi;
+				td4ObjList[i].innerHTML = '20-04-27 0' + dt + ':' + mi;
 			}
 			
 			if(mi < 10) {
-				td4ObjList[i].innerHTML = '20-04-28 ' + dt + ':0' + mi;
+				td4ObjList[i].innerHTML = '20-04-27 ' + dt + ':0' + mi;
 			}
 			
 			if(dt < 10 && mi < 10) {
-				td4ObjList[i].innerHTML = '20-04-28 0' + dt + ':0' + mi;
+				td4ObjList[i].innerHTML = '20-04-27 0' + dt + ':0' + mi;
 			}
 		}
 		for (var i = 0; i < td3ObjList.length; i++) {
@@ -499,6 +504,7 @@ a:hover {
 		var td1Obj = document.getElementsByClassName('td1');
 		var td5ObjList = document.getElementsByClassName('td5');
 		var td4ObjList = document.getElementsByClassName('td4');
+		var td3ObjList = document.getElementsByClassName('td3');
 		var a1Obj = document.getElementById('a1');
 		var a2Obj = document.getElementById('a2');
 		var a3Obj = document.getElementById('a3');
@@ -523,20 +529,20 @@ a:hover {
 		
 		for (var i = 2; i < td4ObjList.length; i++) {
 			mi = mi-3;
-			
-			td4ObjList[i].innerHTML = '20-04-27 ' + dt + ':' + mi;
 			dt = dt-2;
 			
+			td4ObjList[i].innerHTML = '20-04-26 ' + dt + ':' + mi;
+			
 			if(dt < 10) {
-				td4ObjList[i].innerHTML = '20-04-27 0' + dt + ':' + mi;
+				td4ObjList[i].innerHTML = '20-04-26 0' + dt + ':' + mi;
 			}
 			
 			if(mi < 10) {
-				td4ObjList[i].innerHTML = '20-04-27 ' + dt + ':0' + mi;
+				td4ObjList[i].innerHTML = '20-04-26 ' + dt + ':0' + mi;
 			}
 			
 			if(dt < 10 && mi < 10) {
-				td4ObjList[i].innerHTML = '20-04-27 0' + dt + ':0' + mi;
+				td4ObjList[i].innerHTML = '20-04-26 0' + dt + ':0' + mi;
 			}
 		}
 		for (var i = 0; i < td3ObjList.length; i++) {
@@ -555,6 +561,7 @@ a:hover {
 		var td1Obj = document.getElementsByClassName('td1');
 		var td5ObjList = document.getElementsByClassName('td5');
 		var td4ObjList = document.getElementsByClassName('td4');
+		var td3ObjList = document.getElementsByClassName('td3');
 		var a1Obj = document.getElementById('a1');
 		var a2Obj = document.getElementById('a2');
 		var a3Obj = document.getElementById('a3');
@@ -576,24 +583,24 @@ a:hover {
 		var dt = 23;
 		var mi = 60;
 		
-		td4ObjList[1].innerHTML = '20-04-26 ' + dt + ':00';
+		td4ObjList[1].innerHTML = '20-04-25 ' + dt + ':00';
 		
 		for (var i = 2; i < td4ObjList.length; i++) {
 			mi = mi-6;
-			
-			td4ObjList[i].innerHTML = '20-04-26 ' + dt + ':' + mi;
 			dt = dt-2;
 			
+			td4ObjList[i].innerHTML = '20-04-25 ' + dt + ':' + mi;
+			
 			if(dt < 10) {
-				td4ObjList[i].innerHTML = '20-04-26 0' + dt + ':' + mi;
+				td4ObjList[i].innerHTML = '20-04-25 0' + dt + ':' + mi;
 			}
 			
 			if(mi < 10) {
-				td4ObjList[i].innerHTML = '20-04-26 ' + dt + ':0' + mi;
+				td4ObjList[i].innerHTML = '20-04-25 ' + dt + ':0' + mi;
 			}
 			
 			if(dt < 10 && mi < 10) {
-				td4ObjList[i].innerHTML = '20-04-26 0' + dt + ':0' + mi;
+				td4ObjList[i].innerHTML = '20-04-25 0' + dt + ':0' + mi;
 			}
 		}
 		for (var i = 0; i < td3ObjList.length; i++) {
@@ -613,6 +620,7 @@ a:hover {
 		var td1Obj = document.getElementsByClassName('td1');
 		var td5ObjList = document.getElementsByClassName('td5');
 		var td4ObjList = document.getElementsByClassName('td4');
+		var td3ObjList = document.getElementsByClassName('td3');
 		var a1Obj = document.getElementById('a1');
 		var a2Obj = document.getElementById('a2');
 		var a3Obj = document.getElementById('a3');
@@ -635,24 +643,24 @@ a:hover {
 		var dt = 23;
 		var mi = 60;
 		
-		td4ObjList[1].innerHTML = '20-04-25 ' + dt + ':00';
+		td4ObjList[1].innerHTML = '20-04-24 ' + dt + ':00';
 		
 		for (var i = 2; i < td4ObjList.length; i++) {
 			mi = mi-6;
-			
-			td4ObjList[i].innerHTML = '20-04-25 ' + dt + ':' + mi;
 			dt--;
 			
+			td4ObjList[i].innerHTML = '20-04-24 ' + dt + ':' + mi;
+			
 			if(dt < 10) {
-				td4ObjList[i].innerHTML = '20-04-25 0' + dt + ':' + mi;
+				td4ObjList[i].innerHTML = '20-04-24 0' + dt + ':' + mi;
 			}
 			
 			if(mi < 10) {
-				td4ObjList[i].innerHTML = '20-04-25 ' + dt + ':0' + mi;
+				td4ObjList[i].innerHTML = '20-04-24 ' + dt + ':0' + mi;
 			}
 			
 			if(dt < 10 && mi < 10) {
-				td4ObjList[i].innerHTML = '20-04-25 0' + dt + ':0' + mi;
+				td4ObjList[i].innerHTML = '20-04-24 0' + dt + ':0' + mi;
 			}
 		}
 		
@@ -769,7 +777,9 @@ a:hover {
 				<span class="menuFont" style="width: 30px;">메뉴</span>
 			</a>
 		</div>
+		<a href="login.jsp">
 		<img id="logoBox" alt="logo" src="./images/logo_nexon.png">
+		</a>
 		<div id="rightHBox">
 			<div id="PCBox">
 				<span class="menuFont">PC방</span>
@@ -810,7 +820,7 @@ a:hover {
 						<td class='td1'></td>
 						<td class='td2'><a href="#"><span>50번째 게시물입니다</span></a></td>
 						<td class='td3'>운영자</td>
-						<td class='td4'>20-04-27 11:07</td>
+						<td class='td4'>20-04-29 23:00</td>
 						<td class='td5'><div class='into1'></div></td>
 					</tr>
 					<tr class='tr2'>

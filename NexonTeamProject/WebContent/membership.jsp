@@ -474,7 +474,9 @@ var randomNum = 0;
 				<span class="menuFont" style="width: 30px;">메뉴</span>
 			</a>
 		</div>
+		<a href="login.jsp">
 		<img id="logoBox" alt="logo" src="./images/logo_nexon.png">
+		</a>
 		<div id="rightHBox">
 			<div id="PCBox">
 				<span class="menuFont">PC방</span>
@@ -532,7 +534,7 @@ var randomNum = 0;
 						<span class='leftText'>비밀번호</span>
 					</div>
 					<div class='thirdUnderDiv'>
-						<input type='text' id='pwInput' placeholder="비밀번호" />
+						<input type="password" id='pwInput' placeholder="비밀번호" />
 						<p class='inputMsg'>영문/숫자/특수문자를 조합하여 10~16자로 입력해주세요.</p>
 					</div>
 				</div>
@@ -542,7 +544,7 @@ var randomNum = 0;
 						<span class='leftText'>비밀번호 확인</span>
 					</div>
 					<div class='thirdUnderDiv'>
-						<input type='text' id='pwCheckInput' placeholder="비밀번호 확인" />
+						<input type='password' id='pwCheckInput' placeholder="비밀번호 확인" />
 						<p class='inputMsg'>
 							<strong>비밀번호</strong>를 다시 한번 입력해주세요.
 						</p>

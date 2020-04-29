@@ -270,7 +270,57 @@ a:hover {
 
 		loginBox.setAttribute('onmouseenter', 'changeBtnBlue();');
 		loginBox.setAttribute('onmouseleave', 'changeBtnWhite();');
+		
+		//현재 시간
+		var currentTimeObj = document.getElementById('currentTime');
+		var time = updateTimeFnc();
+		currentTimeObj.value= time;
 
+	}
+	
+	//현재시간 
+	function updateTimeFnc(){
+		var localTime = new Date();
+		
+		var year = localTime.getYear().toString();
+		var yearTxt = year.slice(1, 3);
+		
+		var month = localTime.getMonth() + 1;
+		if(month.toString().length == 1){
+			var monthTxt = ''+ 0 + month;
+		}else{
+			var monthTxt = ''+ month;
+		}
+		
+		
+		var date = localTime.getDate();
+		if(date.toString().length == 1){
+			var dateTxt = ''+ 0 + date;
+		}else{
+			var dateTxt = ''+ date;
+		}
+		
+		var hour = localTime.getHours();
+		if(hour.toString().length == 1){
+			var hourTxt = ''+ 0 + hour;
+		}else{
+			var hourTxt = ''+ hour;
+		}
+		
+		var minute = localTime.getMinutes();
+		if(minute.toString().length == 1){
+			var minuteTxt = ''+ 0 + minute;
+		}else{
+			var minuteTxt = ''+ minute;
+		}
+		
+		var timeTxt = yearTxt +'-';
+		timeTxt += monthTxt + '-';
+		timeTxt += dateTxt + ' ';
+		timeTxt += hourTxt + ':';
+		timeTxt += minuteTxt;
+		
+		return timeTxt;
 	}
 
 	function changeBtnBlue() {
@@ -402,7 +452,9 @@ a:hover {
 				<span class="menuFont" style="width: 30px;">메뉴</span>
 			</a>
 		</div>
+		<a href="login.jsp">
 		<img id="logoBox" alt="logo" src="./images/logo_nexon.png">
+		</a>
 		<div id="rightHBox">
 			<div id="PCBox">
 				<span class="menuFont">PC방</span>
@@ -462,6 +514,7 @@ a:hover {
 
 
 			</div>
+			
 			<div id="bottomContainer1">
 				
 					<input id="inputButton" type="submit" value="등록하기">
