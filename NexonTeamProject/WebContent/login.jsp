@@ -277,7 +277,7 @@ a:hover {
 				<span class="choLoginBoxText"  style="color:#7A7A7A;">QR 로그인</span>
 			</div>
 		</div>
-		<form>
+		<form action = './noticeboard.jsp'>
 			<div id="inputBox">
 				<input type="checkbox"><span style="font:12px Dotum;">넥슨ID 저장</span>
 				<div id="inputIdBox">		
