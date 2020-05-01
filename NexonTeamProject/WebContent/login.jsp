@@ -166,6 +166,9 @@ a:hover {
 </style>
 <script type="text/javascript">
 	
+var loginIdCheckB = false;
+var loginPwdCheckB = false;
+
 	window.onload = function(){
 		/* 사이드메뉴  */
 		var sideBox = document.getElementById('sideMenu');
@@ -206,6 +209,12 @@ a:hover {
 			var emailId = emailTxt[1].replace('%40', '@');
 			userIdObj.setAttribute('value', emailId);
 		}
+		
+		/* 로그인 유효성 */
+		var inputLoginBtnObj = document.getElementById('inputLoginBtn');
+		inputLoginBtnObj.setAttribute('onclick', 'inputLoginBtnFnc();');
+		loginIdCheckB = false;
+		loginPwdCheckB = false;
 	}
 	
 	function pcOnOffFnc(){
@@ -272,6 +281,42 @@ a:hover {
 	function closeMenu() {
 		document.getElementById("mySidebar").style.width = "0";
 	}
+	
+	
+	/* 로그인 유효성 */
+	function inputLoginBtnFnc(){
+		var userIdObj = document.getElementById('userId');
+		if(userIdObj.value.length == 0){		
+			alert("ID를 입력해주세요.");
+			loginIdCheckB == false;
+		}else{
+			loginIdCheckB == true;
+		}
+// 		alert(userIdObj.value);
+		var userPwdObj = document.getElementById('userPwd');
+		if(userPwdObj.value.length == 0){		
+			alert("패스워드를 입력해주세요.");
+			loginPwdCheckB == false;
+		}else{
+			loginPwdCheckB == true;
+		}
+// 		alert(userPwdObj.value);
+
+		idPwdCheckFnc();
+	}
+	function idPwdCheckFnc(){
+		var formObj = document.getElementById('formObj');
+		
+// 		alert(formObj.action);
+		if(loginIdCheckB == true && loginPwdCheckB == true){
+			formObj.action = './noticeboard.jsp';
+		}else{
+			formObj.action = './login.jsp';
+		}
+		loginIdCheckB = false;
+		loginPwdCheckB = false;
+	}
+	
 </script>
 </head>
 <body>
@@ -331,7 +376,7 @@ a:hover {
 				<span class="choLoginBoxText"  style="color:#7A7A7A;">QR 로그인</span>
 			</div>
 		</div>
-		<form action = './noticeboard.jsp'>
+		<form id="formObj" action = './noticeboard.jsp'>
 			<div id="inputBox">
 				<input type="checkbox"><span style="font:12px Dotum;">넥슨ID 저장</span>
 				<div id="inputIdBox">		
@@ -341,7 +386,8 @@ a:hover {
 					<input id="userPwd" type="password" placeholder="비밀번호를 입력해주세요.">
 				</div>
 			</div>
-			<button id="inputLoginBtn">
+<!-- 			<input id="inputLoginBtn" type="submit" value="넥슨ID 로그인" style="font: 18px Dotum; color: #FFFFFF;"> -->
+			<button id="inputLoginBtn" onclick="inputLoginBtnFnc();">
 				<span style="font: 18px Dotum; color: #FFFFFF;">넥슨ID 로그인</span>
 			</button>
 		</form>
