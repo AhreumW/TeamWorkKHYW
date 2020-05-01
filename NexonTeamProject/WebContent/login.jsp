@@ -33,7 +33,7 @@
 		display: inline-block; box-sizing:border-box; width: 95px; height:38px;
 	}
 	#loginBtn{
-		padding: 7px 18px; border: 2px solid #17191D; border-radius: 19px;
+		padding: 7px 18px; border: 2px solid #17191D; border-radius: 19px; text-decoration: none;
 	}
 	.menuFont{
 		color: #17191D; font:16px Gothic;
@@ -128,6 +128,9 @@
 	#mySidebar{
 		border-right: 1px solid #dde1e5;
 	}
+	#sideMenu{
+		text-decoration: none;
+	}
 	#sideHeaderBox{
 		height: 0px;
 		border-bottom: 1px solid #dde1e5;
@@ -168,6 +171,15 @@ a:hover {
 		var sideBox = document.getElementById('sideMenu');
 		sideBox.setAttribute('onclick', 'openMenu();');
 		
+		sideBox.setAttribute('onmouseenter', 'changeMenuColorBlue();');
+		sideBox.setAttribute('onmouseleave', 'changeMenuColorBlack();');
+		
+		/* 해더 회원가입버튼 이벤트 */
+		var signUpBox = document.getElementById('signUpBox');
+
+		signUpBox.setAttribute('onmouseenter', 'changeFontColorBlue();');
+		signUpBox.setAttribute('onmouseleave', 'changeFontColorBlack();');
+		
 		/* 로그인버튼 이벤트  */
 		var loginBox = document.getElementById('loginBox');
 
@@ -190,6 +202,32 @@ a:hover {
 			var emailId = emailTxt[1].replace('%40', '@');
 			userIdObj.setAttribute('value', emailId);
 		}
+	}
+	
+	function changeMenuColorBlue(){
+		var sideMenuBtn = document.getElementById('sideMenu');
+		
+		sideMenuBtn.children[0].setAttribute('src', "./images/multimedia.png");
+		sideMenuBtn.children[1].style.color = "#07f";
+	}
+	
+	function changeMenuColorBlack(){
+		var sideMenuBtn = document.getElementById('sideMenu');
+		
+		sideMenuBtn.children[0].setAttribute('src', "./images/menu.png");
+		sideMenuBtn.children[1].style.color = "#17191D";
+	}
+	
+	function changeFontColorBlue(){
+		var singUpBtn = document.getElementById('signUpBox');
+
+		singUpBtn.children[0].children[0].style.color = "#07f";
+	}
+	
+	function changeFontColorBlack(){
+		var singUpBtn = document.getElementById('signUpBox');
+		
+		singUpBtn.children[0].children[0].style.color = "#17191D";
 	}
 	
 	
@@ -248,7 +286,7 @@ a:hover {
 				<span style="color:#9FA1A7; font:16px Gothic; font-weight: bold;">OFF</span>
 			</div>
 			<div id="signUpBox">
-				<a href='membership.jsp'>
+				<a href='membership.jsp' style="text-decoration: none;">
 					<span class="menuFont">회원가입</span>
 				</a>
 			</div>
@@ -292,9 +330,15 @@ a:hover {
 			</button>
 		</form>
 		<div id="bottomMenu">
-			<a href="IdSearch.jsp"><span class="bottomMenuFont bottomMenuForm">넥슨ID 찾기</span></a>
-			<a href="#"><span class="bottomMenuFont bottomMenuForm">비밀번호 찾기</span></a>
-			<a href="membership.jsp"><span class="bottomMenuFont">넥슨 회원가입</span></a>
+			<a href="IdSearch.jsp" style="color: #777777;">
+				<span class="bottomMenuFont bottomMenuForm">넥슨ID 찾기</span>
+			</a>
+			<a href="#" style="color: #777777;">
+				<span class="bottomMenuFont bottomMenuForm">비밀번호 찾기</span>
+			</a>
+			<a href="membership.jsp" style="color: #777777;">
+				<span class="bottomMenuFont">넥슨 회원가입</span>
+			</a>
 			<span class="bottomMenuFont" style="padding-left: 143px;">보안센터</span>
 		</div>
 

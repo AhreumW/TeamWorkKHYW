@@ -63,6 +63,7 @@
 	padding: 7px 18px;
 	border: 2px solid #17191D;
 	border-radius: 19px;
+	text-decoration: none;
 }
 
 .menuFont {
@@ -240,6 +241,9 @@
 	#mySidebar{
 		border-right: 1px solid #dde1e5;
 	}
+	#sideMenu{
+		text-decoration: none;
+	}
 	#sideHeaderBox{
 		height: 0px;
 		border-bottom: 1px solid #dde1e5;
@@ -278,6 +282,14 @@ var randomNum = 0;
 		/* 사이드메뉴  */
 		var sideBox = document.getElementById('sideMenu');
 		sideBox.setAttribute('onclick', 'openMenu();');
+		sideBox.setAttribute('onmouseenter', 'changeMenuColorBlue();');
+		sideBox.setAttribute('onmouseleave', 'changeMenuColorBlack();');
+		
+		/* 해더 회원가입버튼 이벤트 */
+		var signUpBox = document.getElementById('signUpBox');
+
+		signUpBox.setAttribute('onmouseenter', 'changeFontColorBlue();');
+		signUpBox.setAttribute('onmouseleave', 'changeFontColorBlack();');
 		
 		/* 로그인버튼 이벤트  */
 		var loginBox = document.getElementById('loginBox');
@@ -425,6 +437,33 @@ var randomNum = 0;
 		
 		
 	}
+
+	function changeMenuColorBlue(){
+		var sideMenuBtn = document.getElementById('sideMenu');
+		
+		sideMenuBtn.children[0].setAttribute('src', "./images/multimedia.png");
+		sideMenuBtn.children[1].style.color = "#07f";
+	}
+	
+	function changeMenuColorBlack(){
+		var sideMenuBtn = document.getElementById('sideMenu');
+		
+		sideMenuBtn.children[0].setAttribute('src', "./images/menu.png");
+		sideMenuBtn.children[1].style.color = "#17191D";
+	}
+	
+	function changeFontColorBlue(){
+		var singUpBtn = document.getElementById('signUpBox');
+
+		singUpBtn.children[0].children[0].style.color = "#07f";
+	}
+	
+	function changeFontColorBlack(){
+		var singUpBtn = document.getElementById('signUpBox');
+		
+		singUpBtn.children[0].children[0].style.color = "#17191D";
+	}
+	
 	function changeBtnBlue(){
 		var loginBtn = document.getElementById('loginBtn');
 
@@ -483,7 +522,7 @@ var randomNum = 0;
 				<span style="color:#9FA1A7; font:16px Gothic; font-weight: bold;">OFF</span>
 			</div>
 			<div id="signUpBox">
-				<a href='membership.jsp'>
+				<a href='membership.jsp' style="text-decoration: none;">
 					<span class="menuFont">회원가입</span>
 				</a>
 			</div>
