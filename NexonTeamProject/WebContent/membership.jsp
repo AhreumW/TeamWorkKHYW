@@ -447,8 +447,10 @@ var randomNum = 0;
 		var pcStr = pcBoxBtn.children[1].innerHTML;
 		if(pcStr == "OFF"){
 			pcBoxBtn.children[1].innerHTML = "ON";
+			pcBoxBtn.children[1].style.color = "#07f";
 		}else if(pcStr == "ON"){
 			pcBoxBtn.children[1].innerHTML = "OFF";
+			pcBoxBtn.children[1].style.color = "#9FA1A7";
 		}
 	}
 	
