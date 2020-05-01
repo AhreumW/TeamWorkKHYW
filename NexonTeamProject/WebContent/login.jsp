@@ -174,6 +174,10 @@ a:hover {
 		sideBox.setAttribute('onmouseenter', 'changeMenuColorBlue();');
 		sideBox.setAttribute('onmouseleave', 'changeMenuColorBlack();');
 		
+		/* 사이드메뉴  */
+		var PCBox = document.getElementById('PCBox');
+		PCBox.setAttribute('onclick', 'pcOnOffFnc();');
+		
 		/* 해더 회원가입버튼 이벤트 */
 		var signUpBox = document.getElementById('signUpBox');
 
@@ -201,6 +205,16 @@ a:hover {
 			
 			var emailId = emailTxt[1].replace('%40', '@');
 			userIdObj.setAttribute('value', emailId);
+		}
+	}
+	
+	function pcOnOffFnc(){
+		var pcBoxBtn = document.getElementById('PCBox');		
+		var pcStr = pcBoxBtn.children[1].innerHTML;
+		if(pcStr == "OFF"){
+			pcBoxBtn.children[1].innerHTML = "ON";
+		}else if(pcStr == "ON"){
+			pcBoxBtn.children[1].innerHTML = "OFF";
 		}
 	}
 	
